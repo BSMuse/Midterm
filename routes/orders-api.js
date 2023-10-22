@@ -26,5 +26,15 @@ router.get('/:id', (req, res) => {
       });
   });
 
-
+  router.get('/:id/insert', (req, res) => {
+    userQueries.insertOrder()
+      .then( ()=> {
+    //    res.json();  //response need to check
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 module.exports = router;
