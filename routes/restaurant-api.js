@@ -15,8 +15,14 @@ router.get('/', (req, res) => {
   });
   
   router.get('/:id', (req, res) => {
-      userQueries.getRestaurant()
-        .then(dish => {
+    const restaurantId=req.params.id;
+      userQueries.getRestaurant(restaurantId)
+        .then(restaurant => {
+          if (!restaurant) {
+            res.status(404).json({ error: 'Restaurant not found' });
+          } else {
+            res.json({ restaurant });
+          }
           res.json({ restaurant });
         })
         .catch(err => {
