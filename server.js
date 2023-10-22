@@ -31,6 +31,11 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+const dishesRoutes = require('./routes/dishes-api.js');
+const ordersRoutes = require('./routes/orders-api.js');
+const restaurantRoutes = require('./routes/restaurant-api.js');
+const notificationsRoutes = require('./routes/notifications-api.js');
+const smslogsRoutes = require('./routes/smslogs-api.js');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
