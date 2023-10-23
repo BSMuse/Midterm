@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Alt text added for accessability purposes -->
+
 <head>
   <title>Luna's Kitchen</title>
   <!-- Metadata for SEO + browser viewport -->
@@ -23,123 +24,177 @@
     <form method="POST" action="INSERT SEARCH ROUTE HERE">
       <h1>Find Meals on the go with Luna's Kitchen!</h1>
       <label for="search">Explore restuarants by cuisine or dish</label>
-      <textarea name="search" id="search-bar" placeholder="Search for your favourite dish">
-        <button type="submit">Search</button>
-      </form>
-      <img src="INSERT HERO IMAGE" alt="descriptive hero image text">
-    </header>
-    <!-- Main content -->
-    <main>
-        <article class="categories">
-          <h2>Categories</h2>
-          <div>
-            <h3>Appetizers</h3>
-            <img src="INSERT IMG URL" alt="Appetizer sample">
-          </div>
-          <div>
-            <h3>Main</h3>
-            <img src="INSERT IMG URL" alt="Main dish sample">
-          </div>
-          <div>
-            <h3>Desserts</h3>
-            <img src="INSERT IMG URL" alt="Desserts sample">
-          </div>
-          <div>
-            <h3>Beverages</h3>
-            <img src="INSERT IMG URL" alt="Beverages sample">
-          </div>
-          <div>
-            <h3>Specials</h3>
-            <img src="INSERT IMG URL" alt="Special dish sample">
-          </div>
-          <div>
-            <h3>Extras</h3>
-            <img src="INSERT IMG URL" alt="Extra add-ons sample">
-          </div>
-        </article>
-        <!-- Popular Dishes/Recommended Dishes -->
-        <section class="popular_dishes">
-          <div class="popular_header">
-            <i>Utensils</i>
-            <h3>Popular Dishes</h3>
-            <i>Left arrow</i>
-            <i>Right arrow</i>
-          </div>
-          <div class="cards_container">
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+      <div class="search_row">
+        <textarea name="search" id="search-bar" placeholder="Search for your favourite dish"></textarea>
+        <button id="search-button" type="submit">Search</button>
+      </div>
+    </form>
+    <img src="https://placehold.co/900?font=roboto" alt="descriptive hero image text">
+  </header>
+  <!-- Main content -->
+  <main>
+    <!-- Categories -->
+    <article class="categories">
+      <h2>Categories</h2>
+      <div class="category_container">
+        <div class="category_cards">
+          <h3>Appetizers</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Appetizer sample">
+        </div>
+        <div class="category_cards">
+          <h3>Main</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Main dish sample">
+        </div>
+        <div class="category_cards">
+          <h3>Desserts</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Desserts sample">
+        </div>
+        <div class="category_cards">
+          <h3>Beverages</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Beverages sample">
+        </div>
+        <div class="category_cards">
+          <h3>Specials</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Special dish sample">
+        </div>
+        <div class="category_cards">
+          <h3>Extras</h3>
+          <img src="https://placehold.co/600x400?font=roboto" alt="Extra add-ons sample">
+        </div>
+      </div>
+    </article>
+    <!-- Popular Dishes/Recommended Dishes -->
+    <section class="popular_dishes">
+      <div class="popular_header">
+        <div>
+          <i>Utensils</i>
+          <h3>Popular Dishes</h3>
+        </div>
+        <div>
+          <i>Left arrow</i>
+          <i>Right arrow</i>
+        </div>
+      </div>
+      <div class="cards_container">
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
             </div>
-            <div class="dish_cards">
-              <img src="INSERT IMAGE URL" alt="Dish descriptive text">
-              <footer>
-                <span>Dish name here</span>
-                <p>$14.99<sub>$2</sub></p>
-                <i>Favourite icon</i>
-              </footer>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
             </div>
-          </div>
-        </section>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
+            </div>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
+            </div>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
+            </div>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
+            </div>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
+            </div>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
+            </div>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
+            </div>
+          </footer>
+        </div>
+        <div class="dish_cards">
+          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
+          <footer>
+            <div>
+              <span>Dish name here</span>
+              <i>Favourite icon</i>
+            </div>
+            <div>
+              <span>$14.99</span>
+              <small><em>Delivery fee</em> $2</small>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
   </main>
   <!-- Insert html templates using jQuery -->
   <div class="nav_container"></div>
