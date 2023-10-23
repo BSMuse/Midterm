@@ -1,12 +1,12 @@
 function getuserDetails() {
     console.log("getuserDetails");
     return $.ajax({
-        url: "/api/user",
+        url: "/api/users",
     });
 }
 
-function getAllRestaurant() {
-    let url = "/api/restaurants";
+function getRestaurant() {
+    let url = "/api/restaurant";
     return $.ajax({
         url,
     });
