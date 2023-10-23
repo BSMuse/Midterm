@@ -1,14 +1,12 @@
 
-
 $(() => {
 
   getDishData();
 
 });
 
-
 const getDishData = function() {
-  // Call getAllDisfunction on network file.
+  // Call getAllDishes function from network file.
   const data = $(this).serialize();
   getAllDishes(data)
     .then(function(result) {
