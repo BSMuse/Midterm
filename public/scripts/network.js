@@ -5,8 +5,8 @@ function getMyDetails() {
     });
   }
   
-  function getAllRestaurants() {
-    let url = "/api/restaurants";
+  function getAllRestaurant() {
+    let url = "/api/restaurant";
     return $.ajax({
       url,
     });

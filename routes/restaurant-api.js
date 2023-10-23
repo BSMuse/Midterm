@@ -1,11 +1,11 @@
 const express=require('express');
 const router=express.Router();
-const userQueries = require('../db/queries/resaturant');
+const userQueries = require('../db/queries/restaurant');
 
 router.get('/', (req, res) => {
     userQueries.getRestaurant()
-      .then(dishes => {
-        res.json({ restaurants });
+      .then(restaurant => {
+        res.json({ restaurant });
       })
       .catch(err => {
         res
