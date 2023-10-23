@@ -13,6 +13,7 @@ function getRestaurant() {
 }
 
 function getAllDishes() {
+    console.log("get the dishes");
     let url = "/api/dishes";
     return $.ajax({
         url,

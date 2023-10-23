@@ -7,11 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const userQueries = require('../db/queries/user');
+const userQueries = require('../db/queries/users');
 
 router.get('/login/:id', (req, res) => {
   userQueries.getUsers(req.param.id)
-    .then(users => {
+    .then((users) => {
       req.session.user_id = users.client_id;
       res.json({ users });
     })

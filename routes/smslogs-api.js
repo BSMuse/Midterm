@@ -1,12 +1,12 @@
 const express=require('express');
 const router=express.Router();
-const userQueries = require('../db/queries/smslogs');
+const userQueries = require('../db/queries/database');
 
   // Retrieve a specific SMS by ID
   router.get('/:id', (req, res) => {
     const smsid=req.params.id;
       userQueries.getSmslog(smsid)
-        .then(sms => {
+        .then((sms) => {
           res.json({ sms });
         })
         .catch(err => {
