@@ -1,22 +1,22 @@
 $(() => {
+  // User can search through a dish name from this functionality
 
-    $('#searchForm').on('submit', function(event) {
-        event.preventDefault();
-        console.log("I am in search form button");
-        
-        const data = $(this).serialize();
-        getAllDishes(data)
-        .then(function(result){
-            rendersearchDishes(result.dishes);
-        })
+  $('#searchForm').on('submit', function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    $('#search-bar').val('');
+    getAllDishes(data)
+      .then(function(result) {
+        rendersearchDishes(result.dishes);
+      })
 
-    });
+  });
 
-    function  rendersearchDishes(dishes) {
+  function rendersearchDishes(dishes) {
 
-        // Loop through the 'dishes' array and create popular dish cards
-        dishes.forEach(dish => {
-          const $popularDishCard = $(`
+    // Loop through the 'dishes' array and create popular dish cards
+    dishes.forEach(dish => {
+      const $popularDishCard = $(`
         <div class="dish_cards">
           <img src="${dish.image}" alt="${dish.name} descriptive text">
           <footer>
@@ -31,11 +31,11 @@ $(() => {
           </footer>
         </div>
       `);
-  
-          // Append each popular dish card to the popular dishes container
-          $('#cardContainer').append($popularDishCard);
-        });
-      }
+
+      // Append each popular dish card to the popular dishes container
+      $('#cardContainer').append($popularDishCard);
+    });
+  }
 
 
 });

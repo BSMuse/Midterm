@@ -1,42 +1,43 @@
 
 
 $(() => {
- 
+
   getDishData();
-    
+
 });
 
 
-const getDishData=function()
-{
-   // Call getAllDisfunction on network file.
-   const data = $(this).serialize();
-      getAllDishes(data)
-      .then(function(result) {
-        console.log("Dishes are", result);
-        renderDishesCategories(result.dishes);
-        renderPopularDishes(result.dishes);
-      });
+const getDishData = function() {
+  // Call getAllDisfunction on network file.
+  const data = $(this).serialize();
+  getAllDishes(data)
+    .then(function(result) {
+      console.log("Dishes are", result);
+      renderDishesCategories(result.dishes);
+      renderPopularDishes(result.dishes);
+    });
 
-    function renderDishesCategories(dishes) {
+  function renderDishesCategories(dishes) {
 
-      dishes.forEach((i) => {
-        const $categoryCard = $(`
-        <div class="category_cards">
-          <h3>${i.category}</h3>
-        </div>
+    const ids = dishes.map(({ category }) => category);
+    const filtered = dishes.filter(({ category }, index) =>
+      !ids.includes(category, index + 1));
+
+    filtered.forEach((i) => {
+      const $categoryCard = $(`
+      <div class="category_cards">
+        <h3>${i.category}</h3>
+      </div>
       `);
+      $('#dishCategories').append($categoryCard);
+    });
 
-        $('#dishCategories').append($categoryCard);
-      });
+  }
+  function renderPopularDishes(dishes) {
 
-    }
-
-    function renderPopularDishes(dishes) {
-
-      // Loop through the 'dishes' array and create popular dish cards
-      dishes.forEach(dish => {
-        const $popularDishCard = $(`
+    // Loop through the 'dishes' array and create popular dish cards
+    dishes.forEach(dish => {
+      const $popularDishCard = $(`
       <div class="dish_cards">
         <img src="${dish.image}" alt="${dish.name} descriptive text">
         <footer>
@@ -52,10 +53,10 @@ const getDishData=function()
       </div>
     `);
 
-        // Append each popular dish card to the popular dishes container
-        $('#cardContainer').append($popularDishCard);
-      });
-    }
-  
+      // Append each popular dish card to the popular dishes container
+      $('#cardContainer').append($popularDishCard);
+    });
+  }
+
 
 }
