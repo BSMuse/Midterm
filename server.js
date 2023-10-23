@@ -18,10 +18,10 @@ app.use(
   })
 );
 app.get('/login/:id', (req, res) => {
-  // using encrypted cookies
-  req.session.user_id = req.params.id;
-
-  res.redirect('/');
+  if (!req.session.user_id) {
+    return res.redirect('/index');
+  }
+ 
 });
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
