@@ -2,8 +2,110 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  min-width: 99vw;
+}
+
+.hero_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 40%;
+  max-width: 90%;
+  margin: 0 5%;
+}
+.hero_container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10%;
+}
+.hero_container form h1, .hero_container form label {
+  margin-bottom: 1rem;
+}
+.hero_container form #search-bar {
+  resize: none;
+  background: transparent;
+}
+.hero_container form #search-button {
+  cursor: pointer;
+}
+.hero_container form #search-bar, .hero_container form #search-button {
+  border-radius: 10px;
+}
+.hero_container form .search-row {
+  display: flex;
+  justify-content: space-between;
+}
+.hero_container img {
+  max-height: 60vh;
+}
+
+main {
+  max-width: 90%;
+  margin: 0 5%;
+}
+main .categories {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin: 3rem auto;
+}
+main .categories .category_cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+main .categories .category_cards img {
+  max-height: 15vh;
+  padding: 0 1vw;
+}
+main .category_container {
+  display: flex;
+  flex-flow: row wrap;
+}
+main .popular_dishes .popular_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0 3vw;
+  margin: auto;
+}
+main .popular_dishes .popular_header div {
+  display: flex;
+  align-items: center;
+  padding: 0 1vw;
+}
+main .popular_dishes .popular_header div i {
+  padding: 0 0.3vw;
+}
+main .popular_dishes .cards_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+main .popular_dishes .cards_container .dish_cards {
+  max-width: 33%;
+  margin: auto;
+}
+main .popular_dishes .cards_container .dish_cards img {
+  max-width: 100%;
+}
+main .popular_dishes .cards_container .dish_cards footer {
+  display: flex;
+  flex-flow: column wrap;
+}
+main .popular_dishes .cards_container .dish_cards footer div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 3vw;
+}
+
+body {
+  font: 24px;
   background: #a3d0db;
   background: linear-gradient(227deg, #a3d0db 0%, #a3b0db 20%, #a3addb 34%, #a3dbd0 59%, #a3d0db 74%, #a3d0db 100%);
 }
