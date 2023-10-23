@@ -28,15 +28,17 @@
       <h1>Cart</h1>
       <header class="cart_header">
         <p>Dish</p>
-        <div>
-          <p>Quantity</p>
-          <p>Total</p>
-        </div>
+        <!-- <div> -->
+        <p>Quantity</p>
+        <p>Total</p>
+        <!-- </div> -->
       </header>
       <div class="order_list">
         <!-- Can be updated to add more by grabbing .order_item with jQuery -->
         <div class="order_item">
-          <img src="https://placehold.co/100?font=roboto" alt="descriptive dish image text">
+          <div class="dish_info"> <!--NEW DIV-->
+            <img src="https://placehold.co/100?font=roboto" alt="descriptive dish image text">
+          </div>
           <h3>Dish name</h3>
           <p class="description">Dish description</p>
           <input type="number">
@@ -45,22 +47,23 @@
         </div>
       </div>
       <!-- This class can be updated with jQuery and a sum function -->
-      <footer class="cost-overview">
-        <!-- This will go back to menu page -->
-        <button href="#" class="add-button">Add more</button>
-        <div class="itemized-cost">
+      <div class="cost-overview">
+        <div class="subtotal_cost">
           <h4>Subtotal:</h4>
-          <h4>Delivery fee:</h4>
-        </div>
-        <div class="itemized-price">
           <p>$15.49</p>
+        </div>
+        <div class="delivery_cost">
+          <h4>Delivery fee:</h4>
           <p>$2.00</p>
         </div>
-      </footer>
-      <div class="cost-total">
-        <h3>Total:</h3>
-        <p>$</p>
       </div>
+      <footer class="cost_total">
+        <!-- This will go back to menu page -->
+        <button href="#" class="add-button">Add more</button>
+        <div class="order_total">
+          <h3>Total: $</h3>
+        </div>
+      </footer>
     </section>
     <section class="payment_overview">
       <h1>Payment</h1>
