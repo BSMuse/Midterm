@@ -1,20 +1,20 @@
 const db = require('../connection');
 
+
 const getDishes = () => {
-    return db.query('SELECT DISTINCT  category ,name,price,description,image  FROM DISHES')
-        .then((data) => {
-
-            return data.rows;
-        });
-};
-
-const getDishById = (dishId) => {
-    return db.query('SELECT name,category,price,description,image FROM  DISHES where dish_id=$1;', [dishId])
+    return db.query('SELECT DISTINCT  category ,name,price,description,image  FROM "public"."dishes"')
         .then((data) => {
             return data.rows;
         });
 };
 
+const getDishById = (dish_name) => {
+    return db.query('SELECT name,category,price,description,image FROM  "public"."dishes" where name LIKE=$1', [`%${dish_name}%`])
+        .then((data) => {
+            console.log(data.rows[0]);
+            return data.rows[0];
+        });
+};
 
 const getRestaurant = () => {
     return db.query('SELECT name,description,phone_number FROM RESTAURANT ')

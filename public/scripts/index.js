@@ -1,32 +1,41 @@
+
+
 $(() => {
-  console.log("I am in dishes");
+ 
+  getDishData();
+    
+});
+
+
+const getDishData=function()
+{
+   // Call getAllDisfunction on network file.
   getAllDishes()
-    .then(function(result) {
-      console.log("Dishes are", result);
-      renderDishesCategories(result.dishes);
-      renderPopularDishes(result.dishes);
-    });
+      .then(function(result) {
+        console.log("Dishes are", result);
+        renderDishesCategories(result.dishes);
+        renderPopularDishes(result.dishes);
+      });
 
-  function renderDishesCategories(dishes) {
+    function renderDishesCategories(dishes) {
 
-    dishes.forEach((i) => {
-      const $categoryCard = $(`
+      dishes.forEach((i) => {
+        const $categoryCard = $(`
         <div class="category_cards">
           <h3>${i.category}</h3>
         </div>
       `);
 
-      $('#dishCategories').append($categoryCard);
-    });
+        $('#dishCategories').append($categoryCard);
+      });
 
-  }
+    }
 
+    function renderPopularDishes(dishes) {
 
-  function renderPopularDishes(dishes) {
-
-    // Loop through the 'dishes' array and create popular dish cards
-    dishes.forEach(dish => {
-      const $popularDishCard = $(`
+      // Loop through the 'dishes' array and create popular dish cards
+      dishes.forEach(dish => {
+        const $popularDishCard = $(`
       <div class="dish_cards">
         <img src="${dish.image}" alt="${dish.name} descriptive text">
         <footer>
@@ -42,8 +51,10 @@ $(() => {
       </div>
     `);
 
-      // Append each popular dish card to the popular dishes container
-      $('#cardContainer').append($popularDishCard);
-    });
-  }
-});
+        // Append each popular dish card to the popular dishes container
+        $('#cardContainer').append($popularDishCard);
+      });
+    }
+  
+
+}
