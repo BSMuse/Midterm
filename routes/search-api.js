@@ -12,7 +12,7 @@ router.get('/search', (req, res) => {
 
   if (type === 'dish') {
 
-    userQueries.getDishes()
+    userQueries.getDishes()      //getDishes function in database have query to fetch dishes available in restaurant
     .then(dishes => {
       res.json({ dishes });
     })
