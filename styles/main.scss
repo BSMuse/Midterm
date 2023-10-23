@@ -1,18 +1,45 @@
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+@import 'layout';
+@import 'variables';
 
+body {
+  font: 24px;
   background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  background: linear-gradient(227deg,
+      rgba(163, 208, 219, 1) 0%,
+      rgba(163, 176, 219, 1) 20%,
+      rgba(163, 173, 219, 1) 34%,
+      rgba(163, 219, 208, 1) 59%,
+      rgba(163, 208, 219, 1) 74%,
+      rgba(163, 208, 219, 1) 100%);
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.3em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.hero_container {
+
+  label,
+  textarea,
+  button {
+    font-size: 1.25em;
+  }
+}
+
+.dish_cards footer {
+  span {
+    font-size: 2em;
+  }
+
+  small {
+    font-size: 1.2em;
+  }
 }
