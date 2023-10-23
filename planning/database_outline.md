@@ -2,21 +2,22 @@
     client_id (PK)
     name
     phone_number
-    email
+    order_status
   }
 
   entity RESTAURANT {
     restaurant_id (PK)
     name
     description
+    on_sale
   }
 
   entity DISHES {
     dish_id (PK)
     restaurant_id (FK)
     name
-    description
     price
+    image
   }
 
   entity ORDERS {
