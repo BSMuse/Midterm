@@ -15,16 +15,15 @@ CREATE TABLE RESTAURANT (
 
 CREATE TABLE DISHES (
     dish_id INT PRIMARY KEY,
-    restaurant_id INT,
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
+    description VARCHAR(255),
     image VARCHAR(255),
     FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
 );
 
 CREATE TABLE ORDERS (
     order_id INT PRIMARY KEY,
-    restaurant_id INT,
     pickup_time TIME,
     order_status BOOLEAN DEFAULT FALSE,
     total_order_amount DECIMAL(10, 2),
@@ -34,7 +33,6 @@ CREATE TABLE ORDERS (
 
 CREATE TABLE NOTIFICATIONS (
     notification_id INT PRIMARY KEY,
-    restaurant_id INT,
     message TEXT,
     timestamp TIMESTAMP,
     FOREIGN KEY (client_id) REFERENCES CLIENTS(client_id) ON DELETE CASCADE,

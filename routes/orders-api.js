@@ -4,7 +4,7 @@ const userQueries = require('../db/queries/orders');
 
 router.get('/', (req, res) => {
   userQueries.getOrders()
-    .then(dishes => {
+    .then(orders => {
       res.json({ orders });
     })
     .catch(err => {
@@ -15,8 +15,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    userQueries.getOrder()
-      .then(dish => {
+  const orderId=req.params.id;
+    userQueries.getOrder(orderId)
+      .then(order => {
         res.json({ order });
       })
       .catch(err => {
@@ -27,9 +28,10 @@ router.get('/:id', (req, res) => {
   });
 
   router.get('/:id/insert', (req, res) => {
-    userQueries.insertOrder()
-      .then( ()=> {
-    //    res.json();  //response need to check
+    const orderId=req.params.id;
+    userQueries.insertOrder(orderId)
+      .then(()=> {
+       res.json("Added to cart");  
       })
       .catch(err => {
         res

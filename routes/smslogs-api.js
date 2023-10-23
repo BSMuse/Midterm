@@ -4,7 +4,8 @@ const userQueries = require('../db/queries/smslogs');
 
   
   router.get('/:id', (req, res) => {
-      userQueries.getSmslog()
+    const smsid=req.params.id;
+      userQueries.getSmslog(smsid)
         .then(sms => {
           res.json({ sms });
         })
