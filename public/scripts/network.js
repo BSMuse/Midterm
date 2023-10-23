@@ -12,8 +12,8 @@ function getMyDetails() {
       url,
     });
 
-  
-  function getAllDishes() {
+  }
+      function getAllDishes() {
     let url = "/api/dishes";
     return $.ajax({
       url,
