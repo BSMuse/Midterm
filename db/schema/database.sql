@@ -9,8 +9,7 @@ CREATE TABLE RESTAURANT (
     restaurant_id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    phone_number VARCHAR(15) NOT NULL,
-    on_sale BOOLEAN DEFAULT FALSE
+    phone_number VARCHAR(15) NOT NULL
 );
 
 CREATE TABLE DISHES (
