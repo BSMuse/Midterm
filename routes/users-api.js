@@ -6,8 +6,8 @@
  */
 
 const express = require('express');
-const router  = express.Router();
-const userQueries = require('../db/queries/users');
+const router = express.Router();
+const userQueries = require('../db/queries/user');
 
 router.get('/login/:id', (req, res) => {
   userQueries.getUsers(req.param.id)
