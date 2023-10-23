@@ -6,6 +6,7 @@ router.get('/', (req, res) => {
   userQueries
     .getDishes()
     .then((dishes) => {
+      console.log("Dishes are in dishes-api");
       res.json({ dishes });
     })
     .catch(err => {

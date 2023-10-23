@@ -1,9 +1,9 @@
 const db = require('../connection');
 
 const getDishes = () => {
-    return db.query('SELECT  name,category,price,description,image FROM DISHES')
+    return db.query('SELECT DISTINCT  category ,name,price,description,image  FROM DISHES')
         .then((data) => {
-            
+
             return data.rows;
         });
 };
