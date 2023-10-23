@@ -1,15 +1,14 @@
 const db = require('../connection');
 
 const getDishes = () => {
-    return db.query('SELECT  name,category,price,description,image FROM DISHES')
+    return db.query('SELECT  name,category,price,description,image FROM "public"."dishes"')
         .then((data) => {
-            
             return data.rows;
         });
 };
 
 const getDishById = (dishId) => {
-    return db.query('SELECT name,category,price,description,image FROM  DISHES where dish_id=$1;', [dishId])
+    return db.query('SELECT name,category,price,description,image FROM "public"."dishes" where dish_id=$1;', [dishId])
         .then((data) => {
             return data.rows;
         });

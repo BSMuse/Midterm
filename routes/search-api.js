@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userQueries = require('../db/queries/resaturants');
+const userQueries = require('../db/queries/dishes.js');
 
 // Common search route for both dishes and restaurants
 router.get('/search', (req, res) => {
