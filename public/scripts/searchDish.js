@@ -3,7 +3,9 @@ $(() => {
     $('#searchForm').on('submit', function(event) {
         event.preventDefault();
         console.log("I am in search form button");
-        getAllDishes()
+        
+        const data = $(this).serialize();
+        getAllDishes(data)
         .then(function(result){
             rendersearchDishes(result.dishes);
         })

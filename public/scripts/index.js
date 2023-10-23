@@ -10,7 +10,8 @@ $(() => {
 const getDishData=function()
 {
    // Call getAllDisfunction on network file.
-  getAllDishes()
+   const data = $(this).serialize();
+      getAllDishes(data)
       .then(function(result) {
         console.log("Dishes are", result);
         renderDishesCategories(result.dishes);
