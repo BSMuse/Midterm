@@ -19,6 +19,7 @@ CREATE TABLE DISHES (
     price DECIMAL(10, 2) NOT NULL,
     description VARCHAR(255),
     image VARCHAR(255),
+    restaurant_id INT,
     FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
 );
 
@@ -27,6 +28,8 @@ CREATE TABLE ORDERS (
     pickup_time TIME,
     order_status BOOLEAN DEFAULT FALSE,
     total_order_amount DECIMAL(10, 2),
+    client_id INT,
+    restaurant_id INT,
     FOREIGN KEY (client_id) REFERENCES CLIENTS(client_id) ON DELETE CASCADE,
     FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
 );
@@ -35,9 +38,12 @@ CREATE TABLE NOTIFICATIONS (
     notification_id INT PRIMARY KEY,
     message TEXT,
     timestamp TIMESTAMP,
+    client_id INT,
+    restaurant_id INT,
     FOREIGN KEY (client_id) REFERENCES CLIENTS(client_id) ON DELETE CASCADE,
     FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
 );
+
 
 CREATE TABLE SMSLOGS (
     log_id INT PRIMARY KEY,
