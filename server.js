@@ -36,6 +36,12 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
@@ -43,15 +49,18 @@ const ordersRoutes = require('./routes/orders-api.js');
 const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
+const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/user', userApiRoutes);
+
+app.use('/users', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
 app.use('/api/orders', ordersRoutes);
-app.use('/api/restaurant', restaurantRoutes);
-app.use('/api/notificationsRoutes', notificationsRoutes);
-app.use('/api/smslogsRoutes', smslogsRoutes);
+app.use('/api/restaurants', restaurantRoutes);
+app.use('/api/notifications', notificationsRoutes);
+app.use('/api/smslog', smslogsRoutes);
+app.use('/api/search', searchRoutes);
 
 // Home page
 
