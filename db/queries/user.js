@@ -8,6 +8,4 @@ const getUsers = (userid) => {
     });
 };
 
-
-
 module.exports = { getUsers };
