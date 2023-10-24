@@ -1,15 +1,16 @@
 const db = require('../connection');
 
 const getDishes = () => {
-    return db.query('SELECT  name,category,price,description.image FROM DISHES ')
-        .then(data => {
+    return db.query('SELECT  name,category,price,description,image FROM DISHES')
+        .then((data) => {
+            
             return data.rows;
         });
 };
 
 const getDishById = (dishId) => {
-    return db.query('SELECT name,category,price,description.image FROM  DISHES where dish_id=$1;', [dishId])
-        .then(data => {
+    return db.query('SELECT name,category,price,description,image FROM  DISHES where dish_id=$1;', [dishId])
+        .then((data) => {
             return data.rows;
         });
 };
@@ -17,13 +18,13 @@ const getDishById = (dishId) => {
 
 const getRestaurant = () => {
     return db.query('SELECT name,description,phone_number FROM RESTAURANT ')
-        .then(data => {
+        .then((data) => {
             return data.rows;
         });
 };
 
 const getOrder = (orderId) => {
-    const queryString=`
+    const queryString = `
     SELECT CLIENT.name,CLIENT.phone_number,
     RESTAURANT.name,ORDERS.order_id,ORDERS.pickup_time,
     ORDERS.order_status
@@ -32,8 +33,8 @@ const getOrder = (orderId) => {
      JOIN RESTAURANT ON restaurant_id=RESTAURANT.restaurant_id
      WHERE order_id=$1;
     `;
-    return db.query(queryString,[orderId])
-        .then(data => {
+    return db.query(queryString, [orderId])
+        .then((data) => {
             return data.rows;
         });
 };
@@ -42,6 +43,9 @@ const getOrder = (orderId) => {
 
 module.exports = {
     getDishes,
+    getDishById,
+    getRestaurant,
+    getOrder,
 
 
 };
