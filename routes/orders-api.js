@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const userQueries = require('../db/queries/database');
+const userQueries = require('../db/queries/dishes');
 
 
 router.use((req, res, next) => {

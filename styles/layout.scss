@@ -97,7 +97,7 @@ img {
 }
 
 main {
-  max-width: 90%;
+  width: 90%;
   margin: 0 auto 5%;
 
   // Categories of dishes
@@ -222,7 +222,6 @@ main {
 
   // Cart styles
   .cart_overview {
-    border: $border-test;
     width: 80%;
   }
 
@@ -257,7 +256,6 @@ main {
   }
 
   .cost_total {
-    border: $border-test;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -271,7 +269,73 @@ main {
 
   // Payment styles
   .payment_overview {
-    border: $border-test;
     width: 20%;
+  }
+}
+
+// Order Status styles
+.order_header {
+  border-bottom: $divider;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.tracking_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 5% auto;
+}
+
+.middle_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .status_container {
+    border: $divider;
+    display: flex;
+    flex-direction: column;
+    width: 79%;
+    margin-right: 2%;
+
+    .order_progress {
+      div {
+        border: $divider 0;
+        display: flex;
+        align-items: center;
+
+        .step_desc {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .steps {
+      border-radius: 50%;
+      height: fit-content;
+      width: fit-content;
+      padding: 1%;
+    }
+  }
+
+  .estimated_time {
+    border: $divider;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1%;
+    width: 19%;
+
+    .message_button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }
