@@ -9,9 +9,10 @@ const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
-router.get('/', (req, res) => {
-  userQueries.getUsers()
-    .then(users => {
+router.get('/login/:id', (req, res) => {
+  userQueries.getUsers(req.param.id)
+    .then((users) => {
+      req.session.user_id = users.client_id;
       res.json({ users });
     })
     .catch(err => {

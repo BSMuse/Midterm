@@ -1,3 +1,4 @@
+
 function getMyDetails() {
     console.log("getuserDetails");
     return $.ajax({
@@ -10,7 +11,7 @@ function getMyDetails() {
     return $.ajax({
       url,
     });
-  }
+
   
   function getAllDishes() {
     let url = "/api/dishes";
@@ -41,3 +42,4 @@ function getMyDetails() {
       data,
     });
   }
+
