@@ -1,3 +1,4 @@
+
 function getMyDetails() {
     console.log("getuserDetails");
     return $.ajax({
@@ -41,3 +42,4 @@ function getMyDetails() {
       data,
     });
   }
+

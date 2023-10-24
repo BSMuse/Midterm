@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+
 const userQueries = require('../db/queries/restaurant');
 
 router.get('/', (req, res) => {
@@ -13,10 +14,6 @@ router.get('/', (req, res) => {
           .json({ error: err.message });
       });
   });
-  
-  
-
-  
   
   module.exports = router;
   
