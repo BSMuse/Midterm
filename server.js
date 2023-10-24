@@ -5,6 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require("cookie-session");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -25,29 +26,34 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
 const dishesRoutes = require('./routes/dishes-api.js');
 const ordersRoutes = require('./routes/orders-api.js');
 const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
+const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use('/users', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/restaurants', restaurantRoutes);
-app.use('/api/notificationsRoutes',notificationsRoutes);
-app.use('/api/smslogsRoutes', smslogsRoutes);
+app.use('/api/notifications', notificationsRoutes);
+app.use('/api/smslog', smslogsRoutes);
+app.use('/api/search', searchRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
