@@ -1,5 +1,6 @@
 @import 'variables';
 
+// Main page flow
 body {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@ body {
   min-width: 99vw;
 }
 
+// Static Navigation Bar
 nav {
   border-bottom: 3px solid black;
   position: fixed;
@@ -39,10 +41,12 @@ nav {
   }
 }
 
+// All image styling
 img {
   border-radius: 15%;
 }
 
+// Hero content
 .hero_container {
   display: flex;
   align-items: center;
@@ -50,6 +54,12 @@ img {
   max-width: 90%;
   margin: 10% auto 0;
 
+  .hero_img {
+    max-height: 55vh;
+    margin: 0 2vw;
+  }
+
+  // Search field for food
   form {
     display: flex;
     flex-direction: column;
@@ -84,15 +94,17 @@ img {
     }
   }
 
-  img {
-    max-height: 55vh;
-    margin: 0 2vw;
-  }
 }
 
 main {
   max-width: 90%;
   margin: 0 auto 5%;
+
+  // Categories of dishes
+  .category_container {
+    display: flex;
+    flex-flow: row wrap;
+  }
 
   .categories {
     display: flex;
@@ -113,11 +125,8 @@ main {
     }
   }
 
-  .category_container {
-    display: flex;
-    flex-flow: row wrap;
-  }
 
+  // Dish cards for popular dishes
   .popular_dishes {
     .popular_header {
       display: flex;
@@ -171,6 +180,7 @@ main {
   }
 }
 
+// Bottom page footer
 .bottom_navigation {
   border-top: 3px solid black;
   display: flex;
