@@ -7,6 +7,7 @@ body {
 }
 
 nav {
+  border-bottom: 3px solid black;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -79,7 +80,7 @@ img {
 
 main {
   max-width: 90%;
-  margin: 0 auto 15%;
+  margin: 0 auto 5%;
 }
 main .categories {
   display: flex;
@@ -144,6 +145,35 @@ main .popular_dishes .cards_container .dish_cards footer div {
   padding: 1vh 3vw;
 }
 
+.bottom_navigation {
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+}
+.bottom_navigation .footer_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 90%;
+  width: 30%;
+  padding: 0 1%;
+  margin: 0 5%;
+}
+.bottom_navigation .socials {
+  padding-bottom: 7%;
+}
+.bottom_navigation .other_links {
+  padding-top: 5%;
+}
+.bottom_navigation .socials,
+.bottom_navigation .other_links {
+  display: flex;
+  flex-direction: column;
+}
+
 .navigation_links a {
   font-size: 1.5em;
   text-decoration: none;
@@ -168,7 +198,9 @@ h3 {
   font-size: 1.5em;
 }
 
-.hero_container label, .hero_container textarea, .hero_container button {
+.hero_container label,
+.hero_container textarea,
+.hero_container button {
   font-size: 1.25em;
 }
 

@@ -27,7 +27,10 @@ h3 {
 }
 
 .hero_container {
-  label, textarea, button {
+
+  label,
+  textarea,
+  button {
     font-size: 1.25em;
   }
 }
@@ -36,6 +39,7 @@ h3 {
   span {
     font-size: 2em;
   }
+
   small {
     font-size: 1.2em;
   }

@@ -9,6 +9,7 @@ body {
 }
 
 nav {
+  border-bottom: 3px solid black;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -91,7 +92,7 @@ img {
 
 main {
   max-width: 90%;
-  margin: 0 auto 15%;
+  margin: 0 auto 5%;
 
   .categories {
     display: flex;
@@ -167,5 +168,38 @@ main {
         }
       }
     }
+  }
+}
+
+.bottom_navigation {
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+
+  .footer_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 90%;
+    width: 30%;
+    padding: 0 1%;
+    margin: 0 5%;
+  }
+
+  .socials {
+    padding-bottom: 7%;
+  }
+
+  .other_links {
+    padding-top: 5%;
+  }
+
+  .socials,
+  .other_links {
+    display: flex;
+    flex-direction: column;
   }
 }
