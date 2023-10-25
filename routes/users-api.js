@@ -24,4 +24,13 @@ router.get('/login/:id', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+  console.log('test')
+  // Set a session variable when the index page loads
+  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
+
+  // Send the index.html file as a response
+  res.sendFile('index.html', { root: __dirname + '/public' });
+});  
+
 module.exports = router;
