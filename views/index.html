@@ -11,6 +11,8 @@
   <!-- Links for styling -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
+  <!-- Included Google Fonts Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
@@ -34,6 +36,7 @@
         <textarea name="search" id="search-bar" placeholder="Search for your favourite dish"></textarea>
         <button id="search-button" type="submit">Search</button>
       </div>
+      <div id="search-result"></div>
     </form>
     <!-- Change this image url by grabbing .hero_container -->
     <img class="hero_img" src="https://placehold.co/900?font=roboto" alt="descriptive hero image text">
@@ -44,6 +47,7 @@
 
     <article class="categories">
       <h2>Categories</h2>
+
       <div class="category_container" id="dishCategories">
       </div>
     </article>
@@ -51,22 +55,15 @@
     <!-- Popular Dishes/Recommended Dishes -->
     <section class="popular_dishes">
       <div class="popular_header">
-        <div>
-          <i>Utensils</i>
-          <h3>Popular Dishes</h3>
-        </div>
-        <div>
-          <i>Left arrow</i>
-          <i>Right arrow</i>
-        </div>
+        <span class="material-symbols-outlined">restaurant</span>
+        <h3>Popular Dishes</h3>
       </div>
       <div class="cards_container" id="cardContainer">
-
       </div>
     </section>
   </main>
   <!-- Insert html templates using jQuery -->
-  <div class="nav_container"></div>
+  <div id="nav_container"></div>
   <div id="footer_container"></div>
 </body>
 
