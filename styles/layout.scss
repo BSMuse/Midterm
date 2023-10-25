@@ -45,6 +45,31 @@ nav {
 img {
   border-radius: 15%;
 }
+// Layout for all dish 'cards'
+.cards_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3%;
+
+  .dish_cards {
+    border: solid black;
+    border-width: 0 3px 3px;
+    border-radius: 15%;
+    max-width: 30%;
+    margin: 2% auto;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      padding-left: 7%;
+    }
+  }
+}
 
 // Hero content
 .hero_container {
@@ -147,38 +172,8 @@ main {
         }
       }
     }
-
-    .cards_container {
-      display: flex;
-      flex-wrap: wrap;
-
-      .dish_cards {
-        border: solid black;
-        border-width: 0 3px 3px;
-        border-radius: 15%;
-        max-width: 30%;
-        margin: 2% auto;
-
-        img {
-          max-width: 100%;
-        }
-
-        footer {
-          display: flex;
-          flex-flow: column wrap;
-
-          div {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1vh 3vw;
-          }
-        }
-      }
-    }
   }
 }
-
 // Bottom page footer
 .bottom_navigation {
   border-top: $divider;
@@ -342,32 +337,6 @@ main {
 // Menu styles
 .menu_buttons {
   max-width: 100%;
-}
-
-.cards_container {
-  border: $border-test;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 3%;
-
-  .dish_cards {
-    border: solid black;
-    border-width: 0 3px 3px;
-    border-radius: 15%;
-    max-width: 30%;
-    margin: 2% auto;
-
-    img {
-      max-height: 100%;
-      max-width: 100%;
-    }
-
-    footer {
-      display: flex;
-      flex-direction: column;
-      padding-left: 7%;
-    }
-  }
 }
 
 #load-more {
