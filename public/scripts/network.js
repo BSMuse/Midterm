@@ -12,13 +12,21 @@ function getMyDetails() {
       url,
     });
 
-  
-  function getAllDishes() {
-    let url = "/api/dishes";
-    return $.ajax({
-      url,
-    });
   }
+      function getAllDishes(params) {
+        let url = "/api/dishes";
+        if (params) {
+          url += "?" + params;
+        }
+        return $.ajax({
+          url,
+        });
+
+
+    
+  
+  }
+
   function getSearchedItem(params) {
     let url = "/api/search";
     if (params) {

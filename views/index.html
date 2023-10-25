@@ -21,16 +21,17 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/index.js"></script>
   <script src="/scripts/network.js"></script>
+  <script src="/scripts/searchDish.js"></script>
 </head>
 
 <body>
   <!-- Hero content -->
   <header class="hero_container">
 
-    <form method="GET" action="/api/dishes">
+    <form method="GET" action="/api/dishes" id="searchForm">
 
       <h1>Find Meals on the go with Luna's Kitchen!</h1>
-      <label for="search">Explore restuarants by cuisine or dish</label>
+      <label for="search-bar">Explore restuarants by cuisine or dish</label>
       <div class="search_row">
         <textarea name="search" id="search-bar" placeholder="Search for your favourite dish"></textarea>
         <button id="search-button" type="submit">Search</button>
@@ -43,9 +44,13 @@
   <!-- Main content -->
   <main>
     <!-- Categories -->
-    <div id="dishCategories">
+
+    <article class="categories">
       <h2>Categories</h2>
-    </div>
+
+      <div class="category_container" id="dishCategories">
+      </div>
+    </article>
 
     <!-- Popular Dishes/Recommended Dishes -->
     <section class="popular_dishes">
@@ -53,71 +58,7 @@
         <span class="material-symbols-outlined">restaurant</span>
         <h3>Popular Dishes</h3>
       </div>
-      <div class="cards_container">
-        <div class="dish_cards">
-          <!-- This class can also be used by jQuery to update each card with actual data from dish table -->
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
-        <div class="dish_cards">
-          <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
-          <footer>
-              <span>Dish name here</span>
-              <h3>$14.99</h3>
-          </footer>
-        </div>
+      <div class="cards_container" id="cardContainer">
       </div>
     </section>
   </main>

@@ -1,20 +1,24 @@
 const db = require('../connection');
 
-const getDishes = () => {
-    return db.query('SELECT  name,category,price,description,image FROM DISHES')
+
+const getDishes = (searchOption) => {
+    const queryParams = [];
+    let queryString = `
+    SELECT DISTINCT  category ,name,price,description,image 
+     FROM  DISHES
+    `;
+
+    if (searchOption.search) {
+        queryParams.push(`%${searchOption.search}%`);
+        queryString += `WHERE  name LIKE $${queryParams.length} `;
+    }
+
+    return db.query(queryString, queryParams)
         .then((data) => {
-            
             return data.rows;
         });
-};
 
-const getDishById = (dishId) => {
-    return db.query('SELECT name,category,price,description,image FROM  DISHES where dish_id=$1;', [dishId])
-        .then((data) => {
-            return data.rows;
-        });
 };
-
 
 const getRestaurant = () => {
     return db.query('SELECT name,description,phone_number FROM RESTAURANT ')
@@ -43,7 +47,6 @@ const getOrder = (orderId) => {
 
 module.exports = {
     getDishes,
-    getDishById,
     getRestaurant,
     getOrder,
 
