@@ -338,3 +338,41 @@ main {
     }
   }
 }
+
+// Menu styles
+.menu_buttons {
+  max-width: 100%;
+}
+
+.cards_container {
+  border: $border-test;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3%;
+
+  .dish_cards {
+    border: solid black;
+    border-width: 0 3px 3px;
+    border-radius: 15%;
+    max-width: 30%;
+    margin: 2% auto;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      padding-left: 7%;
+    }
+  }
+}
+
+#load-more {
+  position: absolute;
+  top: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
