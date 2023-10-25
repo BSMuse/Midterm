@@ -5,11 +5,11 @@ $(() => {
 
 });
 
-const getDishData = function() {
+const getDishData = function () {
   // Call getAllDishes function from network file.
   const data = $(this).serialize();
   getAllDishes(data)
-    .then(function(result) {
+    .then(function (result) {
       console.log("Dishes are", result);
       renderDishesCategories(result.dishes);
       renderPopularDishes(result.dishes);
@@ -39,14 +39,8 @@ const getDishData = function() {
       <div class="dish_cards">
         <img src="${dish.image}" alt="${dish.name} descriptive text">
         <footer>
-          <div>
             <span>${dish.name}</span>
-            <i>Favourite icon</i>
-          </div>
-          <div>
             <h3>$${dish.price}</h3>
-            <small><em>Delivery fee</em> $2</small>
-          </div>
         </footer>
       </div>
     `);
