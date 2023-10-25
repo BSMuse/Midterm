@@ -96,24 +96,18 @@ main {
 
   // Categories of dishes
   .categories {
-    border: $border-test;
-    background: $back-test;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     margin: 3% auto;
 
     #category_container {
-      border: $border-test;
-      background-color: yellow;
       display: flex;
       flex-flow: row wrap;
       width: 100%;
     }
 
     .category_cards {
-      border: $border-test;
-      background-color: blue;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -141,10 +135,6 @@ main {
         display: flex;
         align-items: center;
         padding: 0 1vw;
-
-        i {
-          padding: 0 0.3vw;
-        }
       }
     }
   }

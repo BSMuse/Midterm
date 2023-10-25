@@ -77,23 +77,17 @@ main {
   margin: 0 auto 5%;
 }
 main .categories {
-  border: 5px solid black;
-  background: red;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   margin: 3% auto;
 }
 main .categories #category_container {
-  border: 5px solid black;
-  background-color: yellow;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
 }
 main .categories .category_cards {
-  border: 5px solid black;
-  background-color: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,9 +110,6 @@ main .popular_dishes .popular_header div {
   display: flex;
   align-items: center;
   padding: 0 1vw;
-}
-main .popular_dishes .popular_header div i {
-  padding: 0 0.3vw;
 }
 
 /*# sourceMappingURL=layout.css.map */

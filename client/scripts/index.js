@@ -46,7 +46,7 @@ const getDishData = function () {
     `);
 
       // Append each popular dish card to the popular dishes container
-      $('#cardContainer').append($popularDishCard);
+      $('#cards').append($popularDishCard);
     });
   }
 
