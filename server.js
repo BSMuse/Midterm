@@ -9,8 +9,8 @@ const cookieSession = require("cookie-session");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-//app.set('view engine', 'ejs');
-app.use(express.static('views'));
+
+app.use(express.static('client'));
 
 app.use(
   cookieSession({
@@ -33,13 +33,6 @@ app.use(
     source: __dirname + '/styles',
     destination: __dirname + '/public/styles',
     isSass: false, // false => scss, true => sass
-  })
-);
-app.use(express.static('public'));
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["key1"],
   })
 );
 

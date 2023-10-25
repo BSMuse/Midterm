@@ -1,0 +1,41 @@
+@import 'variables';
+
+// Bottom page footer
+.bottom_navigation {
+  border-top: $divider;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+
+  .footer_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 90%;
+    width: 30%;
+    padding: 0 1%;
+    margin: 0 5%;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .socials {
+    text-align: center;
+    padding-bottom: 7%;
+  }
+
+  .other_links {
+    padding-top: 5%;
+  }
+
+  .socials,
+  .other_links {
+    display: flex;
+    flex-direction: column;
+  }
+}

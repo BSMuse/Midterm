@@ -10,6 +10,10 @@ const dbParams = {
 };
 
 const db = new Pool(dbParams);
+// Log when connected
+db.on('connect', () => {console.log('Connected to ElephantSQL');});
+// Log connection errors
+db.on('error', (err) => {console.error('Error connecting to ElephantSQL:', err);});
 
 db.connect();
 
