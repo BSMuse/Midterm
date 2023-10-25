@@ -9,42 +9,11 @@ body {
   min-width: 99vw;
 }
 
-// Static Navigation Bar
-nav {
-  border-bottom: $divider;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-height: 10vh;
-  width: 100%;
-  padding: 0 5%;
-
-  .logo_name,
-  .navigation_links,
-  .icons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    max-height: 10vh;
-    width: 20%;
-  }
-
-  .logo_name {
-    text-align: center;
-
-    img {
-      max-height: 9vh;
-    }
-  }
-}
-
 // All image styling
 img {
   border-radius: 15%;
 }
+
 // Layout for all dish 'cards'
 .cards_container {
   display: flex;
@@ -150,7 +119,6 @@ main {
     }
   }
 
-
   // Dish cards for popular dishes
   .popular_dishes {
     .popular_header {
@@ -173,175 +141,4 @@ main {
       }
     }
   }
-}
-// Bottom page footer
-.bottom_navigation {
-  border-top: $divider;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 5%;
-
-  .footer_links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 90%;
-    width: 30%;
-    padding: 0 1%;
-    margin: 0 5%;
-  }
-
-  .socials {
-    padding-bottom: 7%;
-  }
-
-  .other_links {
-    padding-top: 5%;
-  }
-
-  .socials,
-  .other_links {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-// Cart
-.order_container {
-  display: flex;
-  width: 90%;
-  margin: 10% auto;
-
-  // Cart styles
-  .cart_overview {
-    width: 80%;
-  }
-
-  .cart_header {
-    border-bottom: $divider;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 7%;
-    padding-right: 16%;
-  }
-
-  .order_item {
-    border-bottom: $divider;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    margin: 2% 0;
-  }
-
-  .cost-overview {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .subtotal_cost,
-  .delivery_cost {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 15%;
-  }
-
-  .cost_total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .order_total {
-      display: flex;
-      align-items: center;
-      padding-right: 15%;
-    }
-  }
-
-  // Payment styles
-  .payment_overview {
-    width: 20%;
-  }
-}
-
-// Order Status styles
-.order_header {
-  border-bottom: $divider;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10%;
-  width: 100%;
-  padding: 0 5%;
-}
-
-.tracking_container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 5% auto;
-}
-
-.middle_container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-  .status_container {
-    border: $divider;
-    display: flex;
-    flex-direction: column;
-    width: 79%;
-    margin-right: 2%;
-
-    .order_progress {
-      div {
-        border: $divider 0;
-        display: flex;
-        align-items: center;
-
-        .step_desc {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    }
-
-    .steps {
-      border-radius: 50%;
-      height: fit-content;
-      width: fit-content;
-      padding: 1%;
-    }
-  }
-
-  .estimated_time {
-    border: $divider;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1%;
-    width: 19%;
-
-    .message_button {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  }
-}
-
-// Menu styles
-.menu_buttons {
-  max-width: 100%;
-}
-
-#load-more {
-  position: absolute;
-  top: auto;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }

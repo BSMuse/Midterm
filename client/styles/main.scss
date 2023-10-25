@@ -1,9 +1,10 @@
-@import 'variables';
-@import 'layout';
-@import 'nav';
-@import 'footer';
-@import 'menu';
 @import 'cart';
+@import 'footer';
+@import 'layout';
+@import 'menu';
+@import 'nav';
+@import 'order_status';
+@import 'variables';
 
 // Default font size for responsive text
 body {
