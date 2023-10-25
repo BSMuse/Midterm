@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Alt text added for accessability purposes -->
+
 <head>
   <title>Luna's Kitchen</title>
   <!-- Metadata for SEO + browser viewport -->
@@ -10,6 +11,8 @@
   <!-- Links for styling -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
+  <!-- Included Google Fonts Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
@@ -32,6 +35,7 @@
         <textarea name="search" id="search-bar" placeholder="Search for your favourite dish"></textarea>
         <button id="search-button" type="submit">Search</button>
       </div>
+      <div id="search-result"></div>
     </form>
     <!-- Change this image url by grabbing .hero_container -->
     <img class="hero_img" src="https://placehold.co/900?font=roboto" alt="descriptive hero image text">
@@ -42,143 +46,83 @@
     <div id="dishCategories">
       <h2>Categories</h2>
     </div>
-      
+
     <!-- Popular Dishes/Recommended Dishes -->
     <section class="popular_dishes">
       <div class="popular_header">
-        <div>
-          <i>Utensils</i>
-          <h3>Popular Dishes</h3>
-        </div>
-        <div>
-          <i>Left arrow</i>
-          <i>Right arrow</i>
-        </div>
+        <span class="material-symbols-outlined">restaurant</span>
+        <h3>Popular Dishes</h3>
       </div>
       <div class="cards_container">
         <div class="dish_cards">
           <!-- This class can also be used by jQuery to update each card with actual data from dish table -->
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
         <div class="dish_cards">
           <img src="https://placehold.co/600x400?font=roboto" alt="Dish descriptive text">
           <footer>
-            <div>
               <span>Dish name here</span>
-              <i>Favourite icon</i>
-            </div>
-            <div>
               <h3>$14.99</h3>
-              <small><em>Delivery fee</em> $2</small>
-            </div>
           </footer>
         </div>
       </div>
     </section>
   </main>
   <!-- Insert html templates using jQuery -->
-  <div class="nav_container"></div>
+  <div id="nav_container"></div>
   <div id="footer_container"></div>
 </body>
 
