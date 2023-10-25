@@ -1,8 +1,8 @@
 
 $(() => {
-
+  renderNavbar();
   getDishData();
-
+  renderFooter();
 });
 
 const getDishData = function () {
@@ -52,3 +52,13 @@ const getDishData = function () {
 
 
 }
+
+const renderNavbar = function () {
+  // Load nav.html into the element with "nav_container"
+  $('#nav_container').load('nav.html');
+};
+
+const renderFooter = function () {
+  // Load footer.html into the element with "footer_container"
+  $(`#footer_container`).load(`footer.html`);
+};
