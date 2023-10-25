@@ -13,7 +13,6 @@ $(() => {
   function renderMenu(dishes) {
     const $menuCard = $('#menuCard');
     $menuCard.empty();
-
     // Loop through the 'dishes' array and create popular dish card
     dishes.forEach(dish => {
       const $popularDishCard = $(`

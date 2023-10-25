@@ -27,7 +27,6 @@ const getMenus = (Options) => {
     SELECT category ,name,price,description,image 
      FROM  DISHES
     `;
-
     if (Options !== 'All') {
         queryParams.push(`%${Options}%`);
         queryString += `WHERE  category LIKE $${queryParams.length} `;
