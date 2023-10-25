@@ -10,7 +10,7 @@ const cookieSession = require("cookie-session");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-app.use(express.static('views'));
+app.use(express.static('client'));
 
 app.use(
   cookieSession({
@@ -35,7 +35,6 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static('public'));
 
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
