@@ -1,6 +1,5 @@
 const db = require('../connection');
 
-
 const getDishes = (searchOption) => {
     const queryParams = [];
     let queryString = `
@@ -20,6 +19,26 @@ const getDishes = (searchOption) => {
 
 };
 
+const getMenus = (Options) => {
+
+    console.log("in database", Options);
+    const queryParams = [];
+    let queryString = `
+    SELECT category ,name,price,description,image 
+     FROM  DISHES
+    `;
+
+    if (Options !== 'All') {
+        queryParams.push(`%${Options}%`);
+        queryString += `WHERE  category LIKE $${queryParams.length} `;
+
+    }
+    return db.query(queryString, queryParams)
+        .then((data) => {
+            return data.rows;
+        });
+
+};
 const getRestaurant = () => {
     return db.query('SELECT name,description,phone_number FROM RESTAURANT ')
         .then((data) => {
@@ -49,6 +68,7 @@ module.exports = {
     getDishes,
     getRestaurant,
     getOrder,
+    getMenus
 
 
 };

@@ -4,7 +4,7 @@ const userQueries = require('../db/queries/dishes');
 
 router.get('/', (req, res) => {
   userQueries
-    .getDishes(req.query)
+    .getMenus(req.query.type)
     .then((dishes) => {
       res.json({ dishes });
     })
