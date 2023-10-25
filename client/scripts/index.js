@@ -27,7 +27,7 @@ const getDishData = function () {
         <h3>${i.category}</h3>
       </div>
       `);
-      $('#dishCategories').append($categoryCard);
+      $('#category_container').append($categoryCard);
     });
 
   }
