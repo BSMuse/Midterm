@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Alt text added for accessability purposes -->
+<!-- Alt text added for accessibility purposes -->
 
 <head>
   <title>Luna's Kitchen</title>
@@ -22,10 +22,10 @@
   <script src="/scripts/index.js" type="application/javascript"></script>
   <script src="/scripts/network.js" type="application/javascript"></script>
   <script src="/scripts/searchDish.js" type="application/javascript"></script>
+  <script src="/scripts/timer.js" type="application/javascript"></script> <!-- Reference to timer.js -->
 </head>
 
 <body>
-
   <main>
     <div class="tracking_container">
       <img src="https://placehold.co/900x450?text=Order+Tracking&font=roboto" alt="Tracking update">
@@ -61,9 +61,9 @@
         <div class="track_order">
           <h2>Track Order</h2>
         </div>
-        <div id="timer">
+        <div id="timer"> <!-- This is where the timer will be displayed -->
           <h3>Estimated time</h3>
-          <p><!--INSERT TIMER FUNC HRERE--></p>
+          <div id="countdown-timer"></div> <!-- Timer will appear here -->
         </div>
         <div class="message_button">
           <p>Your delicious meal will be there shortly! You can always come back here to track your order. </p>

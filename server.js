@@ -18,6 +18,16 @@ app.use(
     keys: ["key1"],
   })
 );
+
+app.get('/', (req, res) => {
+  console.log('test')
+  // Set a session variable when the index page loads
+  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
+
+  // Send the index.html file as a response
+  res.sendFile('index.html', { root: __dirname + '/public' });
+});  
+
 app.get('/login/:id', (req, res) => {
   if (!req.session.user_id) {
     return res.redirect('index');
@@ -56,10 +66,6 @@ app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
 
 // Home page
-
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
