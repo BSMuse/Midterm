@@ -20,22 +20,22 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  console.log('session', req.session);
-  // Set a session variable when the index page loads
-  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
+// app.get('/', (req, res) => {
+//   console.log('session', req.session);
+//   // Set a session variable when the index page loads
+//   req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
 
-  // Send the index.html file as a response
-  res.sendFile('index.html', { root: __dirname + '/client' });
-});  
+//   // Send the index.html file as a response
+//   res.sendFile('index.html', { root: __dirname + '/client' });
+// });  
 
-app.get('/login/:id', (req, res) => {
-  if (!req.session.user_id) {
-    console.log('cookie session not set');
-    return res.redirect('index');
-  }
+// app.get('/login/:id', (req, res) => {
+//   if (!req.session.user_id) {
+//     console.log('cookie session not set');
+//     return res.redirect('index');
+//   }
 
-});
+// });
 
 app.use(
   '/styles',
@@ -46,6 +46,12 @@ app.use(
   })
 );
 
+// Mount all resource routes
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
+
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
 const menusRoutes = require('./routes/menus-api.js');
@@ -54,12 +60,6 @@ const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
-
-// Mount all resource routes
-app.get('/login/:id', (req, res) => {
-  req.session.user_id = req.params.id;
-  res.redirect('/');
-});
 
 app.use('/login', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);

@@ -9,6 +9,7 @@ const express = require('express');
 const router = express.Router();
 const userQueries = require('../db/queries/user');
 router.get('/', (req, res) => {
+  console.log("I am in user file");
   userQueries.getUsers(req.session.user_id)
     .then((users) => {
       res.json({ users });
