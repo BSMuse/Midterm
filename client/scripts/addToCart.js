@@ -1,7 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Initialize cart with an empty array
   let cart = [];
-
 
   $(document).on('click', '.addToCart', function () {
     // Takes data from 'this' dynamically rendered dish card and places into var
@@ -26,11 +25,9 @@ $(document).ready(function() {
       url: '/api/orders/add-to-cart',
       method: 'POST',
       data: { newItem: JSON.stringify(newItem) },
-      success: function(response) {
+      success: function (response) {
         console.log("Cart updated:", response);
       }
     });
-    // Could attach this post to user cookie server-side
   };
-
 });

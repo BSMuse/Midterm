@@ -22,6 +22,7 @@
   <script src="/scripts/index.js" type="application/javascript"></script>
   <script src="/scripts/network.js" type="application/javascript"></script>
   <script src="/scripts/addToCart.js" type="application/javascript"></script>
+  <script src="/scripts/removeItem.js" type="application/javascript"></script>
 </head>
 
 <body>
@@ -42,9 +43,9 @@
           </div>
           <h3>Dish name</h3>
           <p class="description">Dish description</p>
-          <input type="number" id="quantity">
+          <input type="number" class="quantity">
           <p class="total-cost">$15.49</p>
-          <button id="delete-item">x</button>
+          <button class="delete-item">x</button>
         </div>
       </div>
       <!-- This class can be updated with jQuery and a sum function -->
@@ -56,7 +57,9 @@
       </div>
       <footer class="cost_total">
         <!-- This will go back to menu page -->
-        <button class="add-button">Add more</button>
+        <a href="menu.html">
+          <button class="add-button">Add more</button>
+        </a>
         <div class="order_total">
           <h3>Total: $</h3>
         </div>
