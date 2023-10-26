@@ -18,11 +18,6 @@ app.use(
     keys: ["key1"],
   })
 );
-app.get('/login/:id', (req, res) => {
-
-  req.session.user_id = req.params.id;
-
-});
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
@@ -45,9 +40,12 @@ const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
 
-app.use('/users', userApiRoutes);
+app.use('/login', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
 app.use('/api/menus', menusRoutes);
 app.use('/api/orders', ordersRoutes);

@@ -1,7 +1,7 @@
 
-function getuserDetails(data) {
+function getuserDetails() {
   return $.ajax({
-    url: "/api/users",
+    url: "/login",
   });
 }
 
