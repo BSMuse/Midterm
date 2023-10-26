@@ -1,17 +1,14 @@
-// Client facing scripts here
 $(() => {
-  $('#fetch-users').on('click', () => {
-    $.ajax({
-      method: 'GET',
-      url: '/api/users'
-    })
-    .done((response) => {
-      const $usersList = $('#users');
-      $usersList.empty();
 
-      for(const user of response.users) {
-        $(`<li class="user">`).text(user.name).appendTo($usersList);
-      }
+  function updateHeader(user) {
+    if (user !== null) {
+      $('#login_container').text('Welcome ' + user)
+    }
+  }
+  getuserDetails()
+    .then(function(user) {
+      console.log("user is", user.users.name);
+      updateHeader(user.users.name);
     });
-  });
+
 });

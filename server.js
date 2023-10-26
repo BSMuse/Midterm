@@ -19,21 +19,6 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  console.log('test')
-  // Set a session variable when the index page loads
-  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
-
-  // Send the index.html file as a response
-  res.sendFile('index.html', { root: __dirname + '/public' });
-});  
-
-app.get('/login/:id', (req, res) => {
-
-  req.session.user_id = req.params.id;
-
-});
-
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -55,9 +40,12 @@ const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
 
-app.use('/users', userApiRoutes);
+app.use('/login', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
 app.use('/api/menus', menusRoutes);
 app.use('/api/orders', ordersRoutes);
