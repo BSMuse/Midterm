@@ -1,6 +1,5 @@
 
-function getMyDetails() {
-  console.log("getuserDetails");
+function getuserDetails(data) {
   return $.ajax({
     url: "/api/users",
   });
@@ -30,9 +29,6 @@ function getAllDishes(params) {
   return $.ajax({
     url,
   });
-
-
-
 
 }
 

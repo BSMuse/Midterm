@@ -19,9 +19,8 @@ app.use(
   })
 );
 app.get('/login/:id', (req, res) => {
-  if (!req.session.user_id) {
-    return res.redirect('index');
-  }
+
+  req.session.user_id = req.params.id;
 
 });
 
