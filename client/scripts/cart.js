@@ -21,6 +21,23 @@ $(document).ready(function () {
   }
 
   renderCartItems(cart);
+  updateTotal();
+
+  function updateTotal() {
+    let subtotal = 0;
+    $('.item-cost').each(function () {
+      let cost = parseFloat($(this).text().replace('$', ''));
+      subtotal += cost;
+    });
+
+    $('.subtotal_cost p').text('$' + subtotal.toFixed(2));
+
+    let tax = subtotal * 0.05;
+    $('.tax_cost p').text('$' + tax.toFixed(2));
+
+    let total = subtotal + tax;
+    $('.order_total h3').text('Total: $' + total.toFixed(2));
+  }
 
   function addToCart(newItem) {
     // Takes in dish and pushes to cart
@@ -69,10 +86,10 @@ $(document).ready(function () {
         console.log("Server updated:", response);
       }
     });
+    updateTotal();
   });
 
   $(document).on('click', '.payment_type', function () {
-    console.log("Button clicked, id:", $(this).attr('id'));
     // Clear any existing warnings
     $('.payment-warning').text('');
     // Clear anything in this element if any
