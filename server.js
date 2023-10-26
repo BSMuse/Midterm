@@ -10,8 +10,9 @@ const cookieSession = require("cookie-session");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('client'));
-
 app.use(
   cookieSession({
     name: "session",
@@ -19,13 +20,28 @@ app.use(
   })
 );
 
-app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+  console.log('session', req.session);
+  // Set a session variable when the index page loads
+  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
+
+  // Send the index.html file as a response
+  res.sendFile('index.html', { root: __dirname + '/client' });
+});  
+
+app.get('/login/:id', (req, res) => {
+  if (!req.session.user_id) {
+    console.log('cookie session not set');
+    return res.redirect('index');
+  }
+
+});
+
 app.use(
   '/styles',
   sassMiddleware({
     source: __dirname + '/styles',
-    destination: __dirname + '/public/styles',
+    destination: __dirname + '/client/styles',
     isSass: false, // false => scss, true => sass
   })
 );
