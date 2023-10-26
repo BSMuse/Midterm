@@ -48,6 +48,7 @@ app.use(
 
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
+const menusRoutes = require('./routes/menus-api.js');
 const ordersRoutes = require('./routes/orders-api.js');
 const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
@@ -59,6 +60,7 @@ const searchRoutes = require('./routes/search-api.js');
 
 app.use('/users', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
+app.use('/api/menus', menusRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/notifications', notificationsRoutes);
