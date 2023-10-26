@@ -71,26 +71,29 @@ $(document).ready(function () {
     });
   });
 
-  $(document).on('click', '.payment_type', function() {
+  $(document).on('click', '.payment_type', function () {
+    console.log("Button clicked, id:", $(this).attr('id'));
     // Clear any existing warnings
     $('.payment-warning').text('');
-  
+    // Clear anything in this element if any
+    $('#payment-type').empty();
+
     // Check which payment type was clicked based on the id
     const paymentType = $(this).attr('id');
     // If credit card button is clicked
     if (paymentType === 'credit-card') {
       // Create extra html options istead of hard-coding 20+ lines
       let monthOptions = '';
-    for (let i = 1; i <= 12; i++) {
-      monthOptions += `<option value="${i}">${i < 10 ? '0' + i : i}</option>`;
-    }
+      for (let i = 1; i <= 12; i++) {
+        monthOptions += `<option value="${i}">${i < 10 ? '0' + i : i}</option>`;
+      }
 
-    let yearOptions = '';
-    for (let i = 2023; i < 2023 + 10; i++) {
-      yearOptions += `<option value="${i}">${i}</option>`;
-    }
+      let yearOptions = '';
+      for (let i = 2023; i < 2023 + 10; i++) {
+        yearOptions += `<option value="${i}">${i}</option>`;
+      }
 
-    const creditCardHtml = `
+      const creditCardHtml = `
       <div class="cardholder">
         <h3>Cardholder</h3>
         <input type="text" placeholder="Luna" id="cardholder-name">
@@ -104,10 +107,12 @@ $(document).ready(function () {
         <label for="month">Month:</label>
         <select name="month" id="expiry-month">
           <option value="MM">MM</option>
+          ${monthOptions}
         </select>
         <label for="year">Year:</label>
         <select name="year" id="expiry-year">
           <option value="20YY">20YY</option>
+          ${yearOptions}
         </select>
         <h3>CVV:</h3>
         <label for="ccv">CCV:</label>
@@ -115,46 +120,46 @@ $(document).ready(function () {
       </div>
     `;
 
-    $('.pay_method').append(creditCardHtml);
-    // After the above is appended, check if the inputs are valid when clicking confirm
-    $(document).on('click', '.confirm_button', function() {
-      let isValid = true;
-      let warningText = '';
-  
-      // Validate cardholder name
-      const cardHolderName = $('#cardholder-name').val().trim();
-      if (!cardHolderName || typeof cardHolderName !== 'string') {
-        isValid = false;
-        warningText += 'Cardholder name must be a valid string. ';
-      }
-  
-      // Validate card number is 12 numbers
-      const cardNumber = $('#credit-number').val();
-      if (!/^\d{12}$/.test(cardNumber)) {
-        isValid = false;
-        warningText += 'Card number must be exactly 12 digits. ';
-      }
-  
-      // Validate security number
-      const securityNum = $('#security-num').val();
-      if (!/^\d{3}$/.test(securityNum)) {
-        isValid = false;
-        warningText += 'Security number must be exactly 3 digits. ';
-      }
-  
-      if (!isValid) {
-        $('.payment-warning').text(warningText);
-        return;
-      }
-  
-      // Redirect to /order_status only after all data is valid
-      window.location.href = '/order_status';
-    });
+      $('#payment-type').append(creditCardHtml);
     } else if (paymentType === 'cash-payment') {
       const warningText = 'Please note that cash on hand is limited to small bills. If you will be paying in larger bills, please notify us in advance.';
       $('.payment-warning').text(warningText);
     }
   });
-  
+
+  $(document).on('click', '.confirm_button', function () {
+    event.preventDefault();
+    let isValid = true;
+    let warningText = '';
+
+    // Validate cardholder name
+    const cardHolderName = $('#cardholder-name').val().trim();
+    if (!cardHolderName || typeof cardHolderName !== 'string') {
+      isValid = false;
+      warningText += 'Cardholder name must be a valid string. ';
+    }
+
+    // Validate card number is 12 numbers
+    const cardNumber = $('#credit-number').val();
+    if (!/^\d{12}$/.test(cardNumber)) {
+      isValid = false;
+      warningText += 'Card number must be exactly 12 digits. ';
+    }
+
+    // Validate security number
+    const securityNum = $('#security-num').val();
+    if (!/^\d{3}$/.test(securityNum)) {
+      isValid = false;
+      warningText += 'Security number must be exactly 3 digits. ';
+    }
+
+    if (!isValid) {
+      $('.payment-warning').text(warningText);
+      return;
+    }
+
+    // Redirect to /order_status only after all data is valid
+    window.location.href = '/order_status';
+  });
 
 });

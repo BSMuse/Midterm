@@ -66,14 +66,15 @@
     </section>
     <section class="payment_overview">
       <h1>Payment</h1>
-      <!-- This can switch elements based on which payment the user has selected -->
       <div class="pay_method">
         <h3>Payment method</h3>
+        <!-- This can switch elements based on which payment the user has selected -->
         <button class="payment_type" id="credit-card">Credit</button>
         <button class="payment_type" id="cash-payment">Cash</button>
       </div>
+      <div id="payment-type"></div>
       <!-- This will send user to order status page -->
-      <form method="post" action="/order" class="confirm_pay">
+      <form method="post" action="/order-confirmed" class="confirm_pay">
         <div class="payment-warning"></div>
         <button class="confirm_button" type="submit">Confirm</button>
       </form>
