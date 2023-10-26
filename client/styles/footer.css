@@ -1,0 +1,35 @@
+.bottom_navigation {
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+}
+.bottom_navigation .footer_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 90%;
+  width: 30%;
+  padding: 0 1%;
+  margin: 0 5%;
+}
+.bottom_navigation .footer_links a {
+  text-decoration: none;
+  color: black;
+}
+.bottom_navigation .socials {
+  text-align: center;
+  padding-bottom: 7%;
+}
+.bottom_navigation .other_links {
+  padding-top: 5%;
+}
+.bottom_navigation .socials,
+.bottom_navigation .other_links {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=footer.css.map */

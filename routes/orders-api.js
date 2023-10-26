@@ -1,23 +1,20 @@
 const express = require('express');
 const router  = express.Router();
-const userQueries = require('../db/queries/orders');
+const userQueries = require('../db/queries/dishes');
 
-router.get('/', (req, res) => {
-  userQueries.getOrders()
-    .then(orders => {
-      res.json({ orders });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+
+router.use((req, res, next) => {
+  if (!req.session.user_id) {
+    return res.redirect('/index');
+  }
+  next();
 });
 
+// Retrieve a specific order by ID
 router.get('/:id', (req, res) => {
   const orderId=req.params.id;
     userQueries.getOrder(orderId)
-      .then(order => {
+      .then((order) => {
         res.json({ order });
       })
       .catch(err => {
@@ -27,16 +24,20 @@ router.get('/:id', (req, res) => {
       });
   });
 
-  router.get('/:id/insert', (req, res) => {
-    const orderId=req.params.id;
-    userQueries.insertOrder(orderId)
-      .then(()=> {
-       res.json("Added to cart");  
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
+
+  // Create a new order
+router.post('/', async (req, res) => {
+  try {
+    // Validate and sanitize the order data from the request body
+    const orderData = req.body; 
+
+    // Call the appropriate function from userQueries to create a new order
+    const newOrder = await userQueries.createOrder(orderData);
+
+    res.status(201).json({ order: newOrder });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;

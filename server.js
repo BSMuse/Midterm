@@ -10,11 +10,31 @@ const cookieSession = require("cookie-session");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-app.set('view engine', 'ejs');
+app.use(express.static('client'));
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"],
+  })
+);
+
+app.get('/', (req, res) => {
+  console.log('test')
+  // Set a session variable when the index page loads
+  req.session.user_id = '123'; // Replace '123' with the user's ID or any value you want to set
+
+  // Send the index.html file as a response
+  res.sendFile('index.html', { root: __dirname + '/public' });
+});  
+
+app.get('/login/:id', (req, res) => {
+  if (!req.session.user_id) {
+    return res.redirect('index');
+  }
+
+});
+
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -25,18 +45,10 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
-app.use(express.static('public'));
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["key1"],
-  })
-);
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
+const menusRoutes = require('./routes/menus-api.js');
 const ordersRoutes = require('./routes/orders-api.js');
 const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
@@ -44,25 +56,18 @@ const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
+
 app.use('/users', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
+app.use('/api/menus', menusRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
 
-// Note: mount other resources here, using the same pattern above
-
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

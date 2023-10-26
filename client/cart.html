@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Alt text added for accessability purposes -->
+
+<head>
+  <title>Luna's Kitchen</title>
+  <!-- Metadata for SEO + browser viewport -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links for styling -->
+  <link rel="stylesheet" href="/vendors/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendors/border-box.css" />
+  <!-- Included Google Fonts Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/nav.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+  <!-- Script links + jQuery link -->
+  <script src="/vendors/jquery-3.0.0.js" type="application/javascript"></script>
+  <script src="/scripts/index.js" type="application/javascript"></script>
+  <script src="/scripts/network.js" type="application/javascript"></script>
+  <script src="/scripts/searchDish.js" type="application/javascript"></script>
+</head>
+
+<body>
+  <!-- Main content -->
+  <main class="order_container">
+    <section class="cart_overview">
+      <h1>Cart</h1>
+      <header class="cart_header">
+        <p>Dish</p>
+        <p>Quantity</p>
+        <p>Total</p>
+      </header>
+      <div class="order_list">
+        <!-- Can be updated to add more by grabbing .order_item with jQuery -->
+        <div class="order_item">
+          <div class="dish_info">
+            <img src="https://placehold.co/100?font=roboto" alt="descriptive dish image text">
+          </div>
+          <h3>Dish name</h3>
+          <p class="description">Dish description</p>
+          <input type="number">
+          <p class="total-cost">$15.49</p>
+          <button id="delete-item">x</button>
+        </div>
+      </div>
+      <!-- This class can be updated with jQuery and a sum function -->
+      <div class="cost-overview">
+        <div class="subtotal_cost">
+          <h4>Subtotal:</h4>
+          <p>$15.49</p>
+        </div>
+        <div class="delivery_cost">
+          <h4>Delivery fee:</h4>
+          <p>$2.00</p>
+        </div>
+      </div>
+      <footer class="cost_total">
+        <!-- This will go back to menu page -->
+        <button class="add-button">Add more</button>
+        <div class="order_total">
+          <h3>Total: $</h3>
+        </div>
+      </footer>
+    </section>
+    <section class="payment_overview">
+      <h1>Payment</h1>
+      <!-- This can switch elements based on which payment the user has selected -->
+      <div class="pay_method">
+        <h3>Payment method</h3>
+        <button class="payment_type">Credit</button>
+        <button class="payment_type">PayPal</button>
+      </div>
+      <!-- This code can be cut and pasted into jQuery function if the user chose credit -->
+      <div class="cardholder">
+        <h3>Cardholder</h3>
+        <input type="text" placeholder="Luna">
+      </div>
+      <div class="cardnum">
+        <h3>Card Number</h3>
+        <input type="number" placeholder="123456789012">
+      </div>
+      <div class="expiration">
+        <h3>Expiration:</h3>
+        <label for="month">Month:</label>
+        <select name="month" id="expiry-month">
+          <option value="MM">MM</option>
+        </select>
+        <label for="year">Year:</label>
+        <select name="year" id="expiry-year">
+          <option value="20YY">20YY</option>
+        </select>
+        <h3>CVV:</h3>
+        <label for="ccv">CCV:</label>
+        <input type="number" name="ccv" id="security-num" placeholder="XXX"></input>
+      </div>
+      <!-- This will send user to order status page -->
+      <form id="confirmation" action="" class="confirm_pay">
+        <button class="confirm_button" type="submit">Confirm</button>
+      </form>
+    </section>
+  </main>
+  <!-- Insert html templates using jQuery -->
+  <div id="nav_container"></div>
+  <div id="footer_container"></div>
+</body>
+
+</html>

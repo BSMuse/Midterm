@@ -1,11 +1,11 @@
 const express=require('express');
 const router=express.Router();
-const userQueries = require('../db/queries/notifications');
+const userQueries = require('../db/queries/dishes');
   
   router.get('/:id', (req, res) => {
     const notificationId=req.params.id;
       userQueries.getNotificationById(notificationId)
-        .then(notification => {
+        .then((notification) => {
           res.json({ notification });
         })
         .catch(err => {
