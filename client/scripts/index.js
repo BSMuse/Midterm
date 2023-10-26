@@ -41,6 +41,7 @@ const getDishData = function () {
         <footer>
             <span>${dish.name}</span>
             <h3>$${dish.price}</h3>
+            <button class="addToCart">+</button>
         </footer>
       </div>
     `);
