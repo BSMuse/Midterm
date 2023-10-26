@@ -258,8 +258,7 @@ nav .logo_name img {
   border: 3px solid black;
   display: flex;
   flex-direction: column;
-  width: 79%;
-  margin-right: 2%;
+  text-align: center;
 }
 .middle_container .status_container .order_progress div {
   border: 3px solid black 0;
@@ -269,13 +268,11 @@ nav .logo_name img {
 .middle_container .status_container .order_progress div .step_desc {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-.middle_container .status_container .steps {
-  border-radius: 50%;
-  height: fit-content;
-  width: fit-content;
-  padding: 1%;
-}
+
 .middle_container .estimated_time {
   border: 3px solid black;
   display: flex;
@@ -288,6 +285,10 @@ nav .logo_name img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+} 
+
+#timer {
+  font-size: 2rem;
 }
 
 body {
