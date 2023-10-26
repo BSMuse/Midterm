@@ -5,24 +5,18 @@ const getDishes = (searchOption) => {
     SELECT DISTINCT  category ,name,price,description,image 
      FROM  DISHES
     `;
-
     if (searchOption.search) {
         const cleanedSearch = `%${searchOption.search.replace(/\s/g, '')}%`;
         queryParams.push(cleanedSearch);
         queryString += `WHERE REPLACE(name, ' ', '') ILIKE $${queryParams.length} `;
-        // queryParams.push(`%${searchOption.search}%`);
-        // queryString += `WHERE  name LIKE $${queryParams.length} `;
     }
-
     return db.query(queryString, queryParams)
 
         .then((data) => {
             return data.rows;
         });
-
 };
 const getMenus = (Options) => {
-
     console.log("in database", Options);
     const queryParams = [];
     let queryString = `
@@ -62,8 +56,6 @@ const getOrder = (orderId) => {
             return data.rows;
         });
 };
-
-
 
 module.exports = {
     getDishes,
