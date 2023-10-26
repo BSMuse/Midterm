@@ -7,6 +7,11 @@ router.use((req, res, next) => {
   if (!req.session.user_id) {
     return res.redirect('/index');
   }
+  // Reset cart if invalid
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
+
   next();
 });
 
@@ -38,6 +43,15 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+});
+
+// Adding a dish to the cart
+router.post('/add-to-cart', (req, res) => {
+  console.log('post has been hit');
+  const newItem = JSON.parse(req.body.newItem);
+  req.session.cart.push(newItem);
+  req.session.save();  // Save changes to the session
+  res.status(200).send('Item added to cart');
 });
 
 module.exports = router;
