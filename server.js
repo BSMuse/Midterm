@@ -20,7 +20,6 @@ app.use(
   })
 );
 
-
 app.get('/', (req, res) => {
   console.log('session', req.session);
   // Set a session variable when the index page loads
@@ -49,6 +48,7 @@ app.use(
 
 const userApiRoutes = require('./routes/users-api');
 const dishesRoutes = require('./routes/dishes-api.js');
+const menusRoutes = require('./routes/menus-api.js');
 const ordersRoutes = require('./routes/orders-api.js');
 const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
@@ -56,10 +56,14 @@ const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
 
 // Mount all resource routes
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
 
-app.use('/users', userApiRoutes);
+app.use('/login', userApiRoutes);
 app.use('/api/dishes', dishesRoutes);
+app.use('/api/menus', menusRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/notifications', notificationsRoutes);

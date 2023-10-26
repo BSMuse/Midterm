@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const userQueries = require('../db/queries/dishes');
 
-router.get('/:id', (req, res) => {
-  const notificationId = req.params.id;
-  userQueries.getNotificationById(notificationId)
-    .then((notification) => {
-      res.json({ notification });
+router.get('/', (req, res) => {
+  userQueries
+    .getMenus(req.query.type)
+    .then((dishes) => {
+      res.json({ dishes });
     })
     .catch(err => {
       res
@@ -15,6 +15,4 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 module.exports = router;
-
