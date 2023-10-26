@@ -8,8 +8,11 @@ const getDishes = (searchOption) => {
     `;
 
     if (searchOption.search) {
-        queryParams.push(`%${searchOption.search}%`);
-        queryString += `WHERE  name LIKE $${queryParams.length} `;
+        const cleanedSearch = `%${searchOption.search.replace(/\s/g, '')}%`;
+        queryParams.push(cleanedSearch);
+        queryString += `WHERE REPLACE(name, ' ', '') ILIKE $${queryParams.length} `;
+        // queryParams.push(`%${searchOption.search}%`);
+        // queryString += `WHERE  name LIKE $${queryParams.length} `;
     }
 
     return db.query(queryString, queryParams)
