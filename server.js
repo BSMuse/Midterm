@@ -38,7 +38,7 @@ const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
-
+const orderItemRoutes = require('./routes/order-items-api.js');
 // Mount all resource routes
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
@@ -53,6 +53,7 @@ app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/getorderitems', orderItemRoutes);
 
 // Home page
 

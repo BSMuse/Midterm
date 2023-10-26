@@ -3,7 +3,7 @@ $(document).ready(function() {
       // Start or resume the 60-second timer
       function startTimer() {
           const startTime = new Date().getTime();
-          const targetTime = startTime + 60 * 1000; // 60 seconds in milliseconds
+          const targetTime = startTime + 32 * 1000; // 60 seconds in milliseconds
 
           // Update the timer display every second
           const timerInterval = setInterval(function() {
@@ -13,7 +13,7 @@ $(document).ready(function() {
                   if (currentTime >= targetTime) {
                       // Timer has reached 60 seconds, stop it
                       clearInterval(timerInterval);
-                      $('#timer').text('1:00');
+                      $('#timer').text('0:00');
                   } else {
                       const elapsedTime = targetTime - currentTime;
                       const minutes = Math.floor(elapsedTime / 60000);

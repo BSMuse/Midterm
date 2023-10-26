@@ -23,14 +23,14 @@ $(document).ready(function() {
             $('.step_desc h3').css('color', ''); // Remove color from all h3 tags
             $('.step_desc h3').eq(currentColorIndex).css('color', colors[currentColorIndex]); // Apply the color to the current h3 tag
             currentColorIndex = (currentColorIndex + 1) % $('.step_desc h3').length; // Move to the next h3
-        }, 20000); // Change color every 20 seconds
+        }, 10000); // Change color every 10 seconds
     }
 
 
-        // Start or resume the 60-second timer
+        // Start or resume the 30-second timer
         function startTimer() {
             const startTime = parseInt(req.session.startTime) || new Date().getTime();
-            const targetTime = startTime + 60 * 1000; // 60 seconds in milliseconds
+            const targetTime = startTime + 30 * 1000; // 30 seconds in milliseconds
 
             // Send a message when the timer starts
             const userPhoneNumber = 'user_phone_number'; // Replace with the actual user's phone number
@@ -49,7 +49,7 @@ $(document).ready(function() {
                     const currentTime = new Date().getTime();
 
                     if (currentTime >= targetTime) {
-                        // Timer has reached 60 seconds, stop it
+                        // Timer has reached 30 seconds, stop it
                         clearInterval(timerInterval);
                         $('#timer').text('1:00');
                         req.session.timerRunning = false;
@@ -62,8 +62,8 @@ $(document).ready(function() {
                         sendTextMessage(restaurantPhoneNumber, restaurantEndMessage);
                     } else {
                         const elapsedTime = targetTime - currentTime;
-                        const minutes = Math.floor(elapsedTime / 60000);
-                        const seconds = Math.floor((elapsedTime % 60000) / 1000);
+                        const minutes = Math.floor(elapsedTime / 30000);
+                        const seconds = Math.floor((elapsedTime % 30000) / 1000);
 
                         $('#timer').text(minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
                     }
