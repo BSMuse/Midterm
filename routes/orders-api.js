@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userQueries = require('../db/queries/dishes');
 
-const router  = express.Router();
-const userQueries = require('../db/queries/dishes.js');
-
 
 router.use((req, res, next) => {
   if (!req.session.user_id) {
