@@ -13,14 +13,14 @@ router.get('/search', (req, res) => {
   if (type === 'dish') {
 
     userQueries.getDishes()      //getDishes function in database have query to fetch dishes available in restaurant
-    .then(dishes => {
-      res.json({ dishes });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+      .then(dishes => {
+        res.json({ dishes });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
 
   } else if (type === 'restaurant') {
 
@@ -33,7 +33,7 @@ router.get('/search', (req, res) => {
           .status(500)
           .json({ error: err.message });
       });
-}
+  }
 });
 
 module.exports = router;
