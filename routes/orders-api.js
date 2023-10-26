@@ -14,7 +14,6 @@ router.use((req, res, next) => {
   next();
 });
 
-
 // Retrieve a specific order by ID
 router.get('/:id', (req, res) => {
   const orderId = req.params.id;
