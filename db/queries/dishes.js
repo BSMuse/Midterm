@@ -3,21 +3,26 @@ const db = require('../connection');
 const getDishes = (searchOption) => {
     const queryParams = [];
     let queryString = `
-    SELECT DISTINCT  category ,name,price,description,image 
-     FROM  DISHES
+    SELECT DISTINCT category, name, price, description, image
+    FROM DISHES
     `;
 
     if (searchOption.search) {
-        queryParams.push(`%${searchOption.search}%`);
-        queryString += `WHERE  name LIKE $${queryParams.length} `;
+        const searchTerm = `%${searchOption.search}%`;
+        queryParams.push(searchTerm);
+        queryString += `WHERE name LIKE $${queryParams.length} `;
+    } else {
+        // If searchOption.search is empty, return an empty result set
+        queryString += 'WHERE 1=0 '; // This condition will ensure no rows are returned
     }
 
     return db.query(queryString, queryParams)
         .then((data) => {
             return data.rows;
         });
-
 };
+
+
 
 const getMenus = (Options) => {
 
