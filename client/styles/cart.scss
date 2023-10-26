@@ -1,0 +1,61 @@
+@import 'variables';
+
+// Cart
+.order_container {
+  display: flex;
+  width: 90%;
+  margin: 10% auto;
+
+  // Cart styles
+  .cart_overview {
+    width: 80%;
+  }
+
+  .cart_header {
+    border-bottom: $divider;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 7%;
+    padding-right: 16%;
+  }
+
+  .order_item {
+    border-bottom: $divider;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    margin: 2% 0;
+  }
+
+  .cost-overview {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subtotal_cost,
+  .delivery_cost {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 15%;
+  }
+
+  .cost_total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .order_total {
+      display: flex;
+      align-items: center;
+      padding-right: 15%;
+    }
+  }
+
+  // Payment styles
+  .payment_overview {
+    width: 20%;
+  }
+}
+

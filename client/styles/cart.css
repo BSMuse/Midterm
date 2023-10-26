@@ -1,0 +1,49 @@
+.order_container {
+  display: flex;
+  width: 90%;
+  margin: 10% auto;
+}
+.order_container .cart_overview {
+  width: 80%;
+}
+.order_container .cart_header {
+  border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 7%;
+  padding-right: 16%;
+}
+.order_container .order_item {
+  border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  margin: 2% 0;
+}
+.order_container .cost-overview {
+  display: flex;
+  flex-direction: column;
+}
+.order_container .subtotal_cost,
+.order_container .delivery_cost {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15%;
+}
+.order_container .cost_total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_container .cost_total .order_total {
+  display: flex;
+  align-items: center;
+  padding-right: 15%;
+}
+.order_container .payment_overview {
+  width: 20%;
+}
+
+/*# sourceMappingURL=cart.css.map */

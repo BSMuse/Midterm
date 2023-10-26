@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Alt text added for accessability purposes -->
+
+<head>
+  <title>Luna's Kitchen</title>
+  <!-- Metadata for SEO + browser viewport -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links for styling -->
+  <link rel="stylesheet" href="/vendors/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendors/border-box.css" />
+  <!-- Included Google Fonts Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/nav.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+  <!-- Script links + jQuery link -->
+  <script src="/vendors/jquery-3.0.0.js" type="application/javascript"></script>
+  <script src="/scripts/index.js" type="application/javascript"></script>
+  <script src="/scripts/network.js" type="application/javascript"></script>
+  <script src="/scripts/searchDish.js" type="application/javascript"></script>
+  <script src="/scripts/users.js" type="application/javascript"></script>
+</head>
+
+<body>
+  <!-- Hero content -->
+  <header class="hero_container">
+
+    <form method="GET" action="/api/dishes" id="searchForm">
+
+      <h1>Find Meals on the go with Luna's Kitchen!</h1>
+      <!-- Add description from restaurant.description query -->
+      <p id="kitchen-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad odit soluta eaque.
+        Architecto ratione, consectetur cum illum adipisci tempore reprehenderit tempora consequatur quos unde quam
+        nulla facere inventore possimus molestias.</p>
+      <label for="search-bar">Find dishes on the menu</label>
+      <div class="search_row">
+        <textarea name="search" id="search-bar" placeholder="Search for your favourite dish"></textarea>
+        <button id="search-button" type="submit">Search</button>
+      </div>
+      <!-- Place search results here -->
+      <div id="search-result"></div>
+    </form>
+    <!-- Change this image url by grabbing .hero_container -->
+    <img class="hero_img" src="images/hero-img.png" alt="descriptive hero image text">
+  </header>
+  <!-- Main content -->
+  <main>
+    <!-- Categories -->
+
+    <article class="categories">
+      <h2>Categories</h2>
+      <!-- Dishes added server side here via jQuery -->
+      <div id="category_container">
+        <!-- injected div.category_cards -->
+      </div>
+    </article>
+
+    <!-- Popular Dishes/Recommended Dishes -->
+    <section class="popular_dishes">
+      <div class="popular_header">
+        <span class="material-symbols-outlined">restaurant</span>
+        <h3>Popular Dishes</h3>
+      </div>
+      <div class="cards_container" id="cards">
+        <!-- injected div.dish_cards via jQuery -->
+      </div>
+    </section>
+  </main>
+  <!-- Insert html templates using jQuery -->
+  <div id="nav_container"></div>
+  <div id="footer_container"></div>
+</body>
+
+</html>
