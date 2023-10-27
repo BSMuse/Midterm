@@ -23,7 +23,7 @@ function sendTextMessage(phoneNumber, message) {
 }
 
 // Handle a GET request to send a message
-router.get('/api/send-sms', (req, res) => {
+router.get('/send-sms', (req, res) => {
     const userPhoneNumber = '+17809204015'; // Replace with the actual user's phone number
     const userEndMessage = 'Your order has been delivered. Enjoy your meal!';
     sendTextMessage(userPhoneNumber, userEndMessage);

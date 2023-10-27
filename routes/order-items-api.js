@@ -9,13 +9,13 @@ const ordersData = [
 ];
 
 // Define the "/api/getOrders" endpoint
-router.get('/getOrders', (req, res) => {
+router.get('/getorderitems', (req, res) => {
     // Return all ordersData as JSON
     res.json(ordersData);
 });
 
 // Define an endpoint to get a specific order by order ID
-router.get('/getOrder/:orderId', (req, res) => {
+router.get('/getorderitems/:orderId', (req, res) => {
     const orderId = parseInt(req.params.orderId);
     
     // Find the specific order based on the order ID
