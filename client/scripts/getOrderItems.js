@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  const orderId = 3;
   // Function to fetch and display order items by a specific order ID
   function displayOrderItems(orderId) {
     const orderDiv = $("#order");
@@ -54,6 +55,6 @@ $(document).ready(function () {
   }
 
   // Fetch and render order items for a specific order when the page loads
-  const orderId = 19; // Replace with the actual order ID you want to fetch
+ // Replace with the actual order ID you want to fetch
   displayOrderItems(orderId);
 });

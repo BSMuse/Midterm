@@ -6,9 +6,11 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const cookieSession = require("cookie-session");
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('client'));
@@ -41,8 +43,8 @@ const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
+const textTwilio = require('./routes/sendsms-api.js');
 const orderItemRoutes = require('./routes/orderitems-api.js');
-const textTwilio = require('./routes/send-sms-api.js');
 const userApiRoutes = require('./routes/users-api');
 
 // Mount all resource routes
@@ -55,7 +57,7 @@ app.use('/api/notifications', notificationsRoutes);
 app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/getorderitems', orderItemRoutes);
-app.use('/api/send-sms', textTwilio);
+app.use('/api/sendsms', textTwilio);
 app.use('/login', userApiRoutes);
 
 // Home page
