@@ -1,7 +1,8 @@
 
-function getuserDetails() {
+function getMyDetails() {
+  console.log("getuserDetails");
   return $.ajax({
-    url: "/login",
+    url: "/api/users",
   });
 }
 
@@ -10,28 +11,14 @@ function getAllRestaurant() {
   return $.ajax({
     url,
   });
+}
 
-}
-function getAllMenus(params) {
-  let url = "/api/menus";
-  if (params) {
-    url += "?type=" + params;
-  }
-  return $.ajax({
-    url,
-  });
-}
-function getAllDishes(params) {
+function getAllDishes() {
   let url = "/api/dishes";
-  if (params) {
-    url += "?" + params;
-  }
   return $.ajax({
     url,
   });
-
 }
-
 function getSearchedItem(params) {
   let url = "/api/search";
   if (params) {
@@ -55,6 +42,4 @@ const submitOrder = function(data) {
     data,
   });
 }
-
-
 
