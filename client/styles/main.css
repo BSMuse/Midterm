@@ -293,6 +293,7 @@ nav .logo_name img {
   border: 3px solid black 0;
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 .middle_container .status_container .order_progress div .step_desc {
   display: flex;
@@ -300,6 +301,11 @@ nav .logo_name img {
   align-items: center;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.step_desc {
+  display: flex;
+  flex-direction: column;
 }
 
 .middle_container .estimated_time {

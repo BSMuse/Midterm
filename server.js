@@ -39,6 +39,8 @@ const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
 const orderItemRoutes = require('./routes/order-items-api.js');
+const textTwilio = require('./routes/send-sms-api.js');
+
 // Mount all resource routes
 app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
@@ -54,6 +56,7 @@ app.use('/api/notifications', notificationsRoutes);
 app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/getorderitems', orderItemRoutes);
+app.use('/api/send-sms', textTwilio);
 
 // Home page
 
