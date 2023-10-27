@@ -29,6 +29,8 @@ $(document).ready(function() {
                 // Timer has reached 0 seconds, stop it
                 clearInterval(timerInterval);
                 $('#timer').text('0:00');
+                // Remove the 'targetTime' cookie
+                deleteCookie('targetTime');
             } else {
                 const minutes = Math.floor(elapsedTime / 60000);
                 const seconds = Math.floor((elapsedTime % 60000) / 1000);
@@ -122,6 +124,11 @@ $(document).ready(function() {
                 }
             }
             return null;
+        }
+
+        // Helper function to delete a cookie
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
     } catch (error) {
         // Handle unexpected errors
