@@ -41,7 +41,7 @@ const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
-const orderItemRoutes = require('./routes/order-items-api.js');
+const orderItemRoutes = require('./routes/orderitems-api.js');
 const textTwilio = require('./routes/send-sms-api.js');
 const userApiRoutes = require('./routes/users-api');
 
