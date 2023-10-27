@@ -36,12 +36,12 @@ const getDishData = function () {
     // Loop through the 'dishes' array and create popular dish cards
     dishes.forEach(dish => {
       const $popularDishCard = $(`
-      <div class="dish_cards">
+      <div class="dish_cards" data-dish-id="${dish.id}">
         <img src="${dish.image}" alt="${dish.name} descriptive text">
         <footer>
             <span>${dish.name}</span>
             <h3>$${dish.price}</h3>
-            <button class="addToCart">+</button>
+            <button class="addToOrderItems">+</button>
         </footer>
       </div>
     `);
@@ -63,3 +63,22 @@ const renderFooter = function () {
   // Load footer.html into the element with "footer_container"
   $(`#footer_container`).load(`footer.html`);
 };
+$(document).ready(function () {
+
+  $(".addToOrderItems").click(function () {
+    let dishId = $(this).closest('.dish_cards').data('dish-id');
+    let dishName = $(this).siblings('span').text();
+    let dishPrice = $(this).siblings('h3').text().substring(1);
+    let dishQuantity = 1;
+
+    $.ajax({
+      url: '/api/addOrderItem',
+      method: 'POST',
+      data: { dishId, dishName, dishPrice, dishQuantity },
+      success: function (response) {
+        console.log('Order item added:', response);
+      }
+    });
+  });
+
+});

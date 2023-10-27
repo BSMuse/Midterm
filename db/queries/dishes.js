@@ -50,18 +50,18 @@ const getRestaurant = () => {
         });
 };
 
-const insertIntoOrderItems = (order_id, dish_id, quantity) => {
-    const query = 'INSERT INTO ORDER_ITEMS (order_id, dish_id, quantity) VALUES ($1, $2, $3) RETURNING *';
-    const values = [order_id, dish_id, quantity];
+// const insertIntoOrderItems = (order_id, dish_id, quantity) => {
+//     const query = 'INSERT INTO ORDER_ITEMS (order_id, dish_id, quantity) VALUES ($1, $2, $3) RETURNING *';
+//     const values = [order_id, dish_id, quantity];
   
-    return db.query(query, values)
-      .then((data) => {
-        return data.rows[0];
-      })
-      .catch((error) => {
-        throw error;
-      });
-  };
+//     return db.query(query, values)
+//       .then((data) => {
+//         return data.rows[0];
+//       })
+//       .catch((error) => {
+//         throw error;
+//       });
+//   };
 
 const getOrder = (orderId) => {
     const queryString = `
@@ -83,7 +83,7 @@ module.exports = {
     getDishes,
     getDishById,
     getRestaurant,
-    insertIntoOrderItems,
+    // insertIntoOrderItems,
     getOrder,
     getMenus
 };

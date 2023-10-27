@@ -24,17 +24,13 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/add-to-order-items', (req, res) => {
-  const newItem = JSON.parse(req.body.newItem);
-  const { order_id, dish_id, quantity } = newItem;
-
-  userQueries.insertIntoOrderItems(order_id, dish_id, quantity)
-    .then((result) => {
-      res.status(201).json({ message: 'Item successfully added to ORDER_ITEMS', result });
-    })
-    .catch((error) => {
-      res.status(500).json({ error: 'Failed to add item to ORDER_ITEMS', details: error.message });
-    });
+router.post('/addOrderItem', (req, res) => {
+  const { dishId, dishName, dishPrice } = req.body;
+  // Insert these details into the ORDER_ITEMS table using SQL query.
+  // Your query might look something like:
+  // INSERT INTO ORDER_ITEMS (order_id, dish_id, quantity) VALUES (?, ?, ?)
+  // Here you would use the Pool object from your connection.js to execute the query
 });
+
 
 module.exports = router;
