@@ -32,3 +32,4 @@ router.get('/send-sms', (req, res) => {
 });
 
 
+module.exports = router;
