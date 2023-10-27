@@ -10,29 +10,34 @@
   justify-content: space-between;
   width: 100%;
 }
-.middle_container .status_container {
+
+.status_container {
   border: 3px solid black;
   display: flex;
   flex-direction: column;
   width: 79%;
   margin-right: 2%;
 }
-.middle_container .status_container .order_progress div {
-  border: 3px solid black 0;
+
+.order_progress div {
+  border: 3px solid black;
   display: flex;
   align-items: center;
 }
-.middle_container .status_container .order_progress div .step_desc {
+
+.step_desc {
   display: flex;
   flex-direction: column;
 }
-.middle_container .status_container .steps {
+
+.steps {
   border-radius: 50%;
   height: fit-content;
   width: fit-content;
   padding: 1%;
 }
-.middle_container .estimated_time {
+
+.estimated_time {
   border: 3px solid black;
   display: flex;
   flex-direction: column;
@@ -40,7 +45,8 @@
   padding: 0 1%;
   width: 19%;
 }
-.middle_container .estimated_time .message_button {
+
+.message_button {
   display: flex;
   flex-direction: column;
   justify-content: center;
