@@ -16,6 +16,15 @@ const getDishes = (searchOption) => {
             return data.rows;
         });
 };
+const getDishById = function(id) {
+    const queryString = `
+      SELECT * FROM DISHES WHERE dish_id = $1;
+    `;
+    return db.query(queryString, [id])
+      .then((data) => {
+        return data.rows[0];
+      });
+  };  
 const getMenus = (Options) => {
     console.log("in database", Options);
     const queryParams = [];
@@ -41,6 +50,19 @@ const getRestaurant = () => {
         });
 };
 
+const insertIntoOrderItems = (order_id, dish_id, quantity) => {
+    const query = 'INSERT INTO ORDER_ITEMS (order_id, dish_id, quantity) VALUES ($1, $2, $3) RETURNING *';
+    const values = [order_id, dish_id, quantity];
+  
+    return db.query(query, values)
+      .then((data) => {
+        return data.rows[0];
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+
 const getOrder = (orderId) => {
     const queryString = `
     SELECT CLIENT.name,CLIENT.phone_number,
@@ -59,9 +81,9 @@ const getOrder = (orderId) => {
 
 module.exports = {
     getDishes,
+    getDishById,
     getRestaurant,
+    insertIntoOrderItems,
     getOrder,
     getMenus
-
-
 };

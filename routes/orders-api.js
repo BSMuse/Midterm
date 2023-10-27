@@ -6,10 +6,6 @@ router.use((req, res, next) => {
   if (!req.session.user_id) {
     return res.redirect('/index');
   }
-  // Reset cart if invalid
-  if (!req.session.cart) {
-    req.session.cart = [];
-  }
 
   next();
 });
@@ -28,42 +24,17 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
-// Create a new order
-router.post('/', async (req, res) => {
-  try {
-    // Validate and sanitize the order data from the request body
-    const orderData = req.body;
-
-    // Call the appropriate function from userQueries to create a new order
-    const newOrder = await userQueries.createOrder(orderData);
-
-    res.status(201).json({ order: newOrder });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-// Adding a dish to the cart
-router.post('/add-to-cart', (req, res) => {
-  console.log('post add to cart has been rendered');
+router.post('/add-to-order-items', (req, res) => {
   const newItem = JSON.parse(req.body.newItem);
-  req.session.cart.push(newItem);
-  req.session.save();
-  res.status(200).send('Item added to cart');
-});
+  const { order_id, dish_id, quantity } = newItem;
 
-router.post('/remove-from-cart', (req, res) => {
-  console.log('remove post route has been rendered');
-  const updatedCart = JSON.parse(req.body.cart);
-
-  req.session.cart = updatedCart;
-  req.session.save((err) => {
-    if (err) {
-      return res.status(500).send('Error updating session');
-    }
-    res.status(200).send('Item deleted from cart');
-  });
+  userQueries.insertIntoOrderItems(order_id, dish_id, quantity)
+    .then((result) => {
+      res.status(201).json({ message: 'Item successfully added to ORDER_ITEMS', result });
+    })
+    .catch((error) => {
+      res.status(500).json({ error: 'Failed to add item to ORDER_ITEMS', details: error.message });
+    });
 });
 
 module.exports = router;

@@ -7,8 +7,10 @@ $(document).ready(function () {
 
       const cartItem = `
       <div class="dish_info">
-      <img src="https://placehold.co/100?font=roboto" alt="${item.name} descriptive text here">
+      <img src="${item.image}" alt="${item.name} descriptive text here">
       <h3>${item.name}</h3>
+      <p class="description">${item.description}</p>
+      <input type="number" class="quantity" value="${item.quantity || 1}"
       <p class="total-cost">$${item.price.toFixed(2)}</p>
       <button class="delete-item" data-item-index="${index}">x</button>
       </div>
@@ -112,7 +114,7 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on('click', '.confirm_button', function () {
+  $(document).on('click', '.confirm_button', function (event) {
     event.preventDefault();
     let isValid = true;
     let warningText = '';
