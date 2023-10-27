@@ -47,7 +47,7 @@ const getOrder = (orderId) => {
     RESTAURANT.name,ORDERS.order_id,ORDERS.pickup_time,
     ORDERS.order_status
      FROM ORDERS
-     JOIN CLIENTS ON client_id=CLIENTS.client_id
+     JOIN CLIENTS ON  ORDERS.client_id=CLIENTS.client_id
      JOIN RESTAURANT ON restaurant_id=RESTAURANT.restaurant_id
      WHERE order_id=$1;
     `;
