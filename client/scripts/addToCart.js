@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Initialize cart with an empty array
   let cart = [];
 
@@ -12,13 +12,13 @@ $(document).ready(function () {
       url: '/api/orders/add-to-cart',
       method: 'POST',
       data: { newItem: JSON.stringify(newItem) },
-      success: function (response) {
+      success: function(response) {
         console.log("Cart updated:", response);
       }
     });
   };
 
-  $(document).on('click', '.addToCart', function () {
+  $(document).on('click', '.addToCart', function() {
     // Takes data from 'this' dynamically rendered dish card and places into var
     const dishCard = $(this).closest('.dish_cards');
     const dishName = dishCard.find('span').text();
@@ -30,5 +30,6 @@ $(document).ready(function () {
     };
 
     addToCart(newItem);
+    alert('Added to cart');
   });
 });
