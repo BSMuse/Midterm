@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
   function renderCartItems(cart) {
     $('.cart-container').empty();
@@ -23,7 +23,7 @@ $(document).ready(function () {
 
   function updateTotal() {
     let subtotal = 0;
-    $('.item-cost').each(function () {
+    $('.item-cost').each(function() {
       let cost = parseFloat($(this).text().replace('$', ''));
       subtotal += cost;
     });
@@ -37,7 +37,7 @@ $(document).ready(function () {
     $('.order_total h3').text('Total: $' + total.toFixed(2));
   }
 
-  $(document).on('click', '.delete-item', function () {
+  $(document).on('click', '.delete-item', function() {
     const dishContainer = $(this).closest('.dish_info');
     const dishName = dishContainer.find('h3').text();
     // Find dish in cart array and delete it
@@ -50,14 +50,14 @@ $(document).ready(function () {
       url: '/api/orders/remove-from-cart',
       method: 'POST',
       data: { cart: JSON.stringify(cart) },
-      success: function (response) {
+      success: function(response) {
         console.log("Server updated:", response);
       }
     });
     updateTotal();
   });
 
-  $(document).on('click', '.payment_type', function () {
+  $(document).on('click', '.payment_type', function() {
     // Clear any existing warnings
     $('.payment-warning').text('');
     // Clear anything in this element if any
@@ -112,7 +112,7 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on('click', '.confirm_button', function () {
+  $(document).on('click', '.confirm_button', function() {
     event.preventDefault();
     let isValid = true;
     let warningText = '';

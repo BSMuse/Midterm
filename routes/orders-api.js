@@ -4,7 +4,7 @@ const userQueries = require('../db/queries/dishes');
 
 router.use((req, res, next) => {
   if (!req.session.user_id) {
-    return res.redirect('/index');
+    return res.redirect('/');
   }
   // Reset cart if invalid
   if (!req.session.cart) {
@@ -29,28 +29,37 @@ router.get('/:id', (req, res) => {
 });
 
 
-// Create a new order
-router.post('/', async (req, res) => {
-  try {
-    // Validate and sanitize the order data from the request body
-    const orderData = req.body;
+// // Create a new order
+// router.post('/', async (req, res) => {
+//   try {
+//     // Validate and sanitize the order data from the request body
+//     const orderData = req.body;
 
-    // Call the appropriate function from userQueries to create a new order
-    const newOrder = await userQueries.createOrder(orderData);
+//     // Call the appropriate function from userQueries to create a new order
+//     const newOrder = await userQueries.createOrder(orderData);
 
-    res.status(201).json({ order: newOrder });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+//     res.status(201).json({ order: newOrder });
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
 
 // Adding a dish to the cart
 router.post('/add-to-cart', (req, res) => {
   console.log('post add to cart has been rendered');
   const newItem = JSON.parse(req.body.newItem);
-  req.session.cart.push(newItem);
-  req.session.save();
-  res.status(200).send('Item added to cart');
+ userQueries.
+ createOrder(newItem)
+    .then(()=>{
+      console.log("added to cart");
+    })
+  .catch (error=> {
+    res.status(400).json({ error: error.message });
+  
+  // req.session.cart.push(newItem);
+  // req.session.save;
+  // res.status(200).send('Item added to cart');
+  });
 });
 
 router.post('/remove-from-cart', (req, res) => {
