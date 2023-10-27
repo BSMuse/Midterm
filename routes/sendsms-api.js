@@ -22,13 +22,19 @@ function sendTextMessage(phoneNumber, message) {
         .catch(error => console.error('Error sending message:', error));
 }
 
-// Handle a GET request to send a message
-router.get('/send-sms', (req, res) => {
-    const userPhoneNumber = '+17809204015'; // Replace with the actual user's phone number
-    const userEndMessage = 'Your order has been delivered. Enjoy your meal!';
-    sendTextMessage(userPhoneNumber, userEndMessage);
+// Handle a POST request to send a message
+router.post('/send-sms', (req, res) => {
+    const userPhoneNumber = req.body.phoneNumber; // Get the phone number from the request body
+    const userEndMessage = req.body.message; // Get the message from the request body
 
+    if (!userPhoneNumber || !userEndMessage) {
+        res.status(400).send('Missing phone number or message');
+        return;
+    }
+
+    sendTextMessage(userPhoneNumber, userEndMessage);
     res.send('Message sent successfully');
 });
 
+module.exports = router;
 
