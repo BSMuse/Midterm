@@ -54,11 +54,31 @@
           </div>
         </div>
       </section>
-      <section id ='orders'>
+      <section class="status_container">
         <h3>Your Order</h3>
-        <ul><li>
-
-        </li></ul>
+        <div id = "order">
+          <table>
+            <tr class= "order_table">
+              <th>Dish</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+            <tr class= "order_table">
+              <td>${order.dishName}</td>
+              <td>${order.price}</td>
+              <td>${order.quantity}</td>
+            </tr>
+            <tr>
+              <td colspan="2">Delivery Fee</td>
+              <td>$2.50</td>
+            </tr>
+            <tr class="order_table">
+              <td colspan="2"><strong>Total Amount</strong></td>
+              <td><strong>${order.price + 2.50}</strong></td>
+            </tr>
+          </table>
+          
+        </div>
       </section>
       <section class="estimated_time">
         <div class="track_order">

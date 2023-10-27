@@ -46,6 +46,34 @@
   width: 20%;
 }
 
+.order_table {
+  margin: 0 auto;
+} 
+
+table {
+  margin: 0 auto;
+}
+/* Style the table */
+table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 600px;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+.order_table {
+  background-color: #BEB7DF;
+}
+tr {
+  background-color: #BEB7DF;
+}
+th {
+  background-color: blueviolet;
+  color: white;
+}
+
 .bottom_navigation {
   border-top: 3px solid black;
   display: flex;
@@ -259,6 +287,7 @@ nav .logo_name img {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 30%;
 }
 .middle_container .status_container .order_progress div {
   border: 3px solid black 0;
