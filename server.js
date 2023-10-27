@@ -41,7 +41,10 @@ const restaurantRoutes = require('./routes/restaurant-api.js');
 const notificationsRoutes = require('./routes/notifications-api.js');
 const smslogsRoutes = require('./routes/smslogs-api.js');
 const searchRoutes = require('./routes/search-api.js');
+const orderItemRoutes = require('./routes/order-items-api.js');
+const textTwilio = require('./routes/send-sms-api.js');
 const userApiRoutes = require('./routes/users-api');
+
 // Mount all resource routes
 
 app.use('/api/dishes', dishesRoutes);
@@ -51,8 +54,9 @@ app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/notifications', notificationsRoutes);
 app.use('/api/smslog', smslogsRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/getorderitems', orderItemRoutes);
+app.use('/api/send-sms', textTwilio);
 app.use('/login', userApiRoutes);
-
 
 // Home page
 
