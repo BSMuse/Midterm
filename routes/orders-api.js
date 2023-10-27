@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userQueries = require('../db/queries/dishes');
 
-
 router.use((req, res, next) => {
   if (!req.session.user_id) {
     return res.redirect('/index');
@@ -14,7 +13,6 @@ router.use((req, res, next) => {
 
   next();
 });
-
 
 // Retrieve a specific order by ID
 router.get('/:id', (req, res) => {
