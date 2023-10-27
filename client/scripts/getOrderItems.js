@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // Make an AJAX request to the server to fetch order items by order ID
     $.ajax({
-      url: `/api/getorderitems/${orderId}`, // Include the order ID in the URL
+      url: `/api/order-items/getorderitems/${orderId}`, // Include the order ID in the URL
       method: "GET",
       dataType: "json",
       success: function (orderItems) {
@@ -23,8 +23,8 @@ $(document).ready(function () {
             <tbody>
               ${orderItems.map(order => `
                 <tr class="order_table">
-                  <td>${order.dishName}</td>
-                  <td>${order.price}</td>
+                  <td>${order.dish_name}</td> <!-- Changed to dish_name -->
+                  <td>${order.dish_price}</td> <!-- Changed to dish_price -->
                   <td>${order.quantity}</td>
                 </tr>
               `).join('')}
@@ -49,11 +49,11 @@ $(document).ready(function () {
   // Function to calculate the total amount
   function calculateTotalAmount(orderItems) {
     const deliveryFee = 2.50;
-    const total = orderItems.reduce((acc, order) => acc + parseFloat(order.price) * order.quantity, 0);
+    const total = orderItems.reduce((acc, order) => acc + parseFloat(order.dish_price) * order.quantity, 0); // Changed to dish_price
     return (total + deliveryFee).toFixed(2);
   }
 
   // Fetch and render order items for a specific order when the page loads
-  const orderId = 3; // Replace with the actual order ID you want to fetch
+  const orderId = 19; // Replace with the actual order ID you want to fetch
   displayOrderItems(orderId);
 });

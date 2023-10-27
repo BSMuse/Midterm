@@ -31,4 +31,6 @@ router.get('/send-sms', (req, res) => {
     res.send('Message sent successfully');
 });
 
+module.exports = router;
+
 
