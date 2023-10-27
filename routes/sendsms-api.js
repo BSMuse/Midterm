@@ -37,9 +37,3 @@ router.post('/send-sms', (req, res) => {
 });
 
 module.exports = router;
-
-<<<<<<< HEAD:routes/sendsms-api.js
-=======
-
-module.exports = router;
->>>>>>> dev:routes/send-sms-api.js

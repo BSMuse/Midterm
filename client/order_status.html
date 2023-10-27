@@ -42,15 +42,28 @@
         <h3>Your Order</h3>
         <div id = "order">
           <table>
-            <tr class= "order_table">
+            <tr class="order_table">
               <th>Dish</th>
-              <th>Price</th>
               <th>Quantity</th>
+              <th>Price</th>
             </tr>
-            <tr class= "order_table">
-              <td>${order.dishName}</td>
-              <td>${order.price}</td>
-              <td>${order.quantity}</td>
+            <!-- Cheeseburger -->
+            <tr class="order_table">
+              <td>Cheeseburger</td>
+              <td>1</td>
+              <td>$10.99</td>
+            </tr>
+            <!-- Fruit Smoothie -->
+            <tr class="order_table">
+              <td>Fruit Smoothie</td>
+              <td>1</td>
+              <td>$6.99</td>
+            </tr>
+            <!-- Onion Rings -->
+            <tr class="order_table">
+              <td>Onion Rings</td>
+              <td>1</td>
+              <td>$5.99</td>
             </tr>
             <tr>
               <td colspan="2">Delivery Fee</td>
@@ -58,10 +71,10 @@
             </tr>
             <tr class="order_table">
               <td colspan="2"><strong>Total Amount</strong></td>
-              <td><strong>${order.price + 2.50}</strong></td>
+              <td><strong>$25.72</strong></td>
             </tr>
           </table>
-          
+            
         </div>
       </section>
       <section class="estimated_time">
