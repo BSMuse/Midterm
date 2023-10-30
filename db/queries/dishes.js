@@ -2,13 +2,15 @@ const db = require('../connection');
 const getDishes = (searchOption) => {
     const queryParams = [];
     let queryString = `
-    SELECT DISTINCT  category ,name,price,description,image 
-     FROM  DISHES
+    SELECT DISTINCT category, name, price, description, image
+    FROM DISHES
     `;
     if (searchOption.search) {
+
         const cleanedSearch = `%${searchOption.search.replace(/\s/g, '')}%`;
         queryParams.push(cleanedSearch);
         queryString += `WHERE REPLACE(name, ' ', '') ILIKE $${queryParams.length} `;
+
     }
     return db.query(queryString, queryParams)
 
@@ -16,6 +18,7 @@ const getDishes = (searchOption) => {
             return data.rows;
         });
 };
+
 const getMenus = (Options) => {
     console.log("in database", Options);
     const queryParams = [];
