@@ -24,6 +24,9 @@ CREATE TABLE DISHES (
 
 CREATE TABLE ORDERS (
     order_id SERIAL PRIMARY KEY,
+    client_id INT,
+    restaurant_id INT,
+
     pickup_time TIME,
     order_status BOOLEAN DEFAULT FALSE,
     total_order_amount DECIMAL(10, 2),
@@ -33,20 +36,12 @@ CREATE TABLE ORDERS (
     FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
 );
 
-CREATE TABLE NOTIFICATIONS (
-    notification_id SERIAL PRIMARY KEY,
-    message TEXT,
-    timestamp TIMESTAMP,
-    client_id INT,
-    restaurant_id INT,
-    FOREIGN KEY (client_id) REFERENCES CLIENTS(client_id) ON DELETE CASCADE,
-    FOREIGN KEY (restaurant_id) REFERENCES RESTAURANT(restaurant_id) ON DELETE CASCADE
+CREATE TABLE ORDER_ITEMS (
+    order_item_id SERIAL PRIMARY KEY,
+    order_id INT,
+    dish_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES ORDERS(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (dish_id) REFERENCES DISHES(dish_id) ON DELETE CASCADE
 );
 
-CREATE TABLE SMSLOGS (
-    log_id SERIAL PRIMARY KEY,
-    sender VARCHAR(50) CHECK (sender IN ('Client', 'Restaurant')),
-    recipient VARCHAR(50) CHECK (recipient IN ('Client', 'Restaurant')),
-    message TEXT,
-    timestamp TIMESTAMP
-);

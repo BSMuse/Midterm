@@ -1,6 +1,3 @@
-@import 'variables';
-
-// Order Status styles
 .tracking_container {
   display: flex;
   justify-content: center;
@@ -12,47 +9,49 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-
-  .status_container {
-    border: $divider;
-    display: flex;
-    flex-direction: column;
-    width: 79%;
-    margin-right: 2%;
-
-    .order_progress {
-      div {
-        border: $divider 0;
-        display: flex;
-        align-items: center;
-
-        .step_desc {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    }
-
-    .steps {
-      border-radius: 50%;
-      height: fit-content;
-      width: fit-content;
-      padding: 1%;
-    }
-  }
-
-  .estimated_time {
-    border: $divider;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1%;
-    width: 19%;
-
-    .message_button {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  }
 }
+
+.status_container {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 79%;
+  margin-right: 2%;
+}
+
+.order_progress div {
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.step_desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.steps {
+  border-radius: 50%;
+  height: fit-content;
+  width: fit-content;
+  padding: 1%;
+}
+
+.estimated_time {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1%;
+  width: 19%;
+}
+
+.message_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+/*# sourceMappingURL=order_status.scss.map */
